@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connect Ideathon — Florianópolis 2026</title>
+<style>
+  :root {
+    --azul: #003399;
+    --magenta: #9E14A6;
+    --magenta-escuro: #621C75;
+    --laranja: #E17230;
+    --laranja-escuro: #B64221;
+    --roxo: #2F0099;
+    --azul-escuro: #040E69;
+    --azul-detalhe: #006399;
+    --ciano: #009499;
+    --claro: #FBF4E9;
+    --claro-escuro: #DBD0C4;
+    --text-dark: #0a1240;
+    --text-muted: #5a6a9a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--claro);
+    color: var(--text-dark);
+    font-family: 'Century Gothic', 'CenturyGothic', 'AppleGothic', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(251,244,233,0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,51,153,0.07);
+  }
+
+  .nav-logo {
+    font-family: 'Tw Cen MT Condensed', 'Century Gothic', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: var(--azul-escuro);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  /* ant trail mark: dots spaced like a trail/path */
+  .ant-trail-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    opacity: 0.7;
+  }
+  .ant-trail-mark span {
+    display: block;
+    background: var(--azul);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  nav ul { list-style: none; display: flex; gap: 2.5rem; }
+  nav ul a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.74rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  nav ul a:hover { color: var(--azul); }
+  .nav-cta {
+    background: var(--azul);
+    color: #fff !important;
+    padding: 0.48rem 1.3rem;
+    border-radius: 2px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--azul-escuro) !important; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--claro);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero-left {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 3rem 6rem 5rem;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--azul-detalhe);
+    margin-bottom: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 1.8rem;
+    height: 1px;
+    background: var(--azul-detalhe);
+  }
+
+  .hero-title {
+    font-family: 'Constantia', 'Georgia', serif;
+    font-size: clamp(2.8rem, 5vw, 4.8rem);
+    line-height: 1.03;
+    font-weight: 400;
+    color: var(--azul-escuro);
+    margin-bottom: 0.2rem;
+  }
+  .hero-title em { font-style: italic; color: var(--text-muted); font-size: 0.9em; }
+
+  .hero-accent {
+    font-family: 'Tw Cen MT Condensed', 'Century Gothic', sans-serif;
+    font-size: clamp(3.2rem, 6vw, 5.8rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--azul);
+    line-height: 1;
+    margin-bottom: 2rem;
+  }
+  .hero-accent::after {
+    content: '';
+    display: block;
+    width: 2.8rem;
+    height: 3px;
+    background: var(--laranja);
+    margin-top: 0.55rem;
+  }
+
+  .hero-desc {
+    font-size: 0.93rem;
+    line-height: 1.75;
+    color: var(--text-muted);
+    max-width: 430px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+
+  .btn-primary {
+    background: var(--azul);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.88rem 2.1rem;
+    font-size: 0.76rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    font-family: 'Century Gothic', sans-serif;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--azul-escuro); transform: translateY(-1px); }
+
+  .btn-secondary {
+    border: 1.5px solid var(--azul);
+    color: var(--azul);
+    text-decoration: none;
+    padding: 0.88rem 2.1rem;
+    font-size: 0.76rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    font-family: 'Century Gothic', sans-serif;
+    transition: background 0.2s;
+  }
+  .btn-secondary:hover { background: rgba(0,51,153,0.05); }
+
+  .hero-stats { display: flex; gap: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(0,51,153,0.1); }
+  .stat-num { font-family: 'Constantia', serif; font-size: 1.7rem; color: var(--azul); line-height: 1; display: block; }
+  .stat-label { font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.3rem; display: block; }
+
+  /* Hero right fills full height of the grid cell */
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+  }
+  .hero-right svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ─── SECTIONS ─── */
+  .section { padding: 7rem 5rem; position: relative; }
+  .section-white { background: #fff; }
+  .section-cream { background: var(--claro); }
+  .section-blue { background: var(--azul-escuro); color: var(--claro); }
+
+  .section-label { font-size: 0.67rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--azul-detalhe); margin-bottom: 0.7rem; }
+  .section-blue .section-label { color: var(--ciano); }
+
+  .section-title {
+    font-family: 'Constantia', serif;
+    font-size: clamp(1.9rem, 3.2vw, 2.9rem);
+    font-weight: 400;
+    color: var(--azul-escuro);
+    margin-bottom: 0.8rem;
+    max-width: 560px;
+  }
+  .section-title em { font-style: italic; color: var(--text-muted); }
+  .section-blue .section-title { color: var(--claro); }
+  .section-blue .section-title em { color: var(--claro-escuro); }
+
+  .section-subtitle {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    max-width: 510px;
+    line-height: 1.78;
+    font-weight: 300;
+    margin-bottom: 3.5rem;
+  }
+  .section-blue .section-subtitle { color: var(--claro-escuro); }
+
+  /* ─── METHOD ─── */
+  .method-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+  .method-card {
+    border: 1px solid rgba(0,51,153,0.1);
+    padding: 2.2rem;
+    background: #fff;
+    position: relative;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .method-card:hover { border-color: rgba(0,51,153,0.25); box-shadow: 0 6px 28px rgba(0,51,153,0.06); }
+
+  .method-num { font-family: 'Constantia', serif; font-size: 3rem; color: rgba(0,51,153,0.07); line-height: 1; position: absolute; top: 1.2rem; right: 1.5rem; }
+  .method-bar { width: 2.2rem; height: 2px; margin-bottom: 1.4rem; }
+  .method-card-title { font-family: 'Tw Cen MT Condensed', 'Century Gothic', sans-serif; font-size: 0.95rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--azul-escuro); margin-bottom: 0.75rem; }
+  .method-card p { font-size: 0.84rem; line-height: 1.75; color: var(--text-muted); font-weight: 300; }
+  .highlight { color: var(--azul); font-weight: 400; }
+
+  /* ─── ANT TRAIL DIVIDER ─── */
+  /* Conceptual trail: dots of varying sizes in a wandering line, like footprints/pheromone path */
+  .trail-divider {
+    margin-top: 3.5rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* ─── COMPANIES ─── */
+  .companies-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .benefit-list { list-style: none; display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: 2.5rem; }
+  .benefit-list li { display: flex; align-items: flex-start; gap: 1rem; font-size: 0.86rem; color: var(--claro-escuro); line-height: 1.65; }
+  .benefit-list li::before { content: '—'; color: var(--ciano); flex-shrink: 0; }
+
+  /* ─── STEPS ─── */
+  .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid rgba(0,51,153,0.1); }
+  .step { padding: 2.2rem 1.8rem; border-right: 1px solid rgba(0,51,153,0.1); }
+  .step:last-child { border-right: none; }
+  .step-num { font-family: 'Constantia', serif; font-size: 2.4rem; line-height: 1; margin-bottom: 1.2rem; display: block; }
+  .step-1 .step-num { color: var(--azul); }
+  .step-2 .step-num { color: var(--magenta); }
+  .step-3 .step-num { color: var(--ciano); }
+  .step-4 .step-num { color: var(--laranja); }
+  .step-title { font-family: 'Tw Cen MT Condensed', 'Century Gothic', sans-serif; font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--azul-escuro); margin-bottom: 0.75rem; }
+  .step p { font-size: 0.81rem; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+
+  /* ─── PARTNERS ─── */
+  .partners-coming {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 4rem 2rem;
+    border: 1px dashed rgba(0,51,153,0.2);
+    text-align: center;
+  }
+  .partners-coming-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .partners-coming-title {
+    font-family: 'Constantia', serif;
+    font-size: 1.3rem;
+    color: var(--azul-escuro);
+    font-style: italic;
+  }
+  .partners-coming p {
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    max-width: 420px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* Realizadores confirmed */
+  .realizadores-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border-top: 1px solid rgba(0,51,153,0.1);
+    border-left: 1px solid rgba(0,51,153,0.1);
+    margin-bottom: 2rem;
+  }
+  .realizador-chip {
+    padding: 0.95rem 2rem;
+    border-right: 1px solid rgba(0,51,153,0.1);
+    border-bottom: 1px solid rgba(0,51,153,0.1);
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-family: 'Tw Cen MT Condensed', 'Century Gothic', sans-serif;
+    font-weight: 700;
+  }
+  .realizador-chip.azul { color: var(--azul); }
+  .realizador-chip.co { color: var(--magenta-escuro); }
+
+  /* ─── PETEEL BAND ─── */
+  .peteel-band {
+    background: rgba(0,51,153,0.04);
+    border-top: 1px solid rgba(0,51,153,0.08);
+    border-bottom: 1px solid rgba(0,51,153,0.08);
+    padding: 1.2rem 5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .peteel-label { font-size: 0.63rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-muted); }
+  .peteel-name { font-family: 'Tw Cen MT Condensed', 'Century Gothic', sans-serif; font-size: 0.88rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--azul); font-weight: 700; }
+
+  /* ─── CTA ─── */
+  .cta-inner { text-align: center; max-width: 620px; margin: 0 auto; position: relative; z-index: 1; }
+  .cta-tag { display: inline-block; border: 1px solid rgba(251,244,233,0.25); color: var(--claro-escuro); font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; padding: 0.38rem 1rem; border-radius: 100px; margin-bottom: 1.8rem; }
+  .cta-buttons { display: flex; justify-content: center; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
+  .btn-white { background: var(--claro); color: var(--azul-escuro); text-decoration: none; padding: 0.88rem 2.1rem; font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 2px; font-family: 'Century Gothic', sans-serif; transition: background 0.2s; }
+  .btn-white:hover { background: var(--claro-escuro); }
+  .btn-outline-white { border: 1.5px solid rgba(251,244,233,0.3); color: var(--claro); text-decoration: none; padding: 0.88rem 2.1rem; font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 2px; font-family: 'Century Gothic', sans-serif; transition: background 0.2s; }
+  .btn-outline-white:hover { background: rgba(251,244,233,0.07); }
+
+  /* ─── FOOTER ─── */
+  footer { background: var(--azul-escuro); padding: 2.4rem 5rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); }
+  .footer-logo { font-family: 'Tw Cen MT Condensed', 'Century Gothic', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--claro); display: flex; align-items: center; gap: 0.6rem; }
+  .footer-links { display: flex; gap: 2rem; list-style: none; }
+  .footer-links a { text-decoration: none; color: rgba(219,208,196,0.5); font-size: 0.69rem; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--claro); }
+  .footer-info { font-size: 0.67rem; color: rgba(219,208,196,0.3); letter-spacing: 0.12em; text-transform: uppercase; }
+  .footer-peteel { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(219,208,196,0.3); margin-top: 0.2rem; }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-eyebrow { animation: fadeUp 0.6s ease 0.1s both; }
+  .hero-title   { animation: fadeUp 0.6s ease 0.22s both; }
+  .hero-accent  { animation: fadeUp 0.6s ease 0.34s both; }
+  .hero-desc    { animation: fadeUp 0.6s ease 0.46s both; }
+  .hero-buttons { animation: fadeUp 0.6s ease 0.56s both; }
+  .hero-stats   { animation: fadeUp 0.6s ease 0.66s both; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 960px) {
+    nav { padding: 1.1rem 1.5rem; }
+    nav ul { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { min-height: 320px; }
+    .hero-left { padding: 7rem 1.5rem 3rem; }
+    .section { padding: 5rem 1.5rem; }
+    .method-grid, .companies-grid { grid-template-columns: 1fr; }
+    .companies-grid { gap: 3rem; }
+    .steps-grid { grid-template-columns: 1fr 1fr; }
+    .step { border-bottom: 1px solid rgba(0,51,153,0.1); }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
+    .peteel-band { padding: 1.2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <!-- trail mark: three dots in a loose diagonal, like tracks -->
+    <div class="ant-trail-mark">
+      <span style="width:4px;height:4px;transform:translate(0,2px);"></span>
+      <span style="width:6px;height:6px;"></span>
+      <span style="width:4px;height:4px;transform:translate(0,-2px);"></span>
+    </div>
+    Connect
+  </div>
+  <ul>
+    <li><a href="#metodo">Metodologia</a></li>
+    <li><a href="#empresas">Empresas</a></li>
+    <li><a href="#como">Como funciona</a></li>
+    <li><a href="#parceiros">Parceiros</a></li>
+    <li><a href="#inscricoes" class="nav-cta">Inscrições</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Florianópolis · Agosto 2026</div>
+    <h1 class="hero-title">O problema é<br><em>sua primeira</em></h1>
+    <div class="hero-accent">missão.</div>
+    <p class="hero-desc">
+      Um ideathon universitário onde você não recebe o problema pronto.
+      Você investiga, identifica e valida o desafio real de empresas de Florianópolis — antes de propor qualquer solução.
+    </p>
+    <div class="hero-buttons">
+      <a href="#inscricoes" class="btn-primary">Quero participar</a>
+      <a href="#metodo" class="btn-secondary">Como funciona</a>
+    </div>
+    <div class="hero-stats">
+      <div><span class="stat-num">75</span><span class="stat-label">Participantes</span></div>
+      <div><span class="stat-num">4–5</span><span class="stat-label">Por equipe</span></div>
+      <div><span class="stat-num">1</span><span class="stat-label">Metodologia única</span></div>
+    </div>
+  </div>
+
+  <!-- HERO RIGHT: proper mountain silhouette, sky to bottom -->
+  <div class="hero-right">
+    <svg viewBox="0 0 640 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <!-- sky: light blue-cream at horizon, deeper blue at top, like the photo -->
+        <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#3a4080"/>
+          <stop offset="30%"  stop-color="#7060a0"/>
+          <stop offset="60%"  stop-color="#c090b0"/>
+          <stop offset="80%"  stop-color="#dbb0a0"/>
+          <stop offset="100%" stop-color="#FBF4E9"/>
+        </linearGradient>
+        <!-- far mountains: dark purple-blue silhouette -->
+        <linearGradient id="mFarG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1a1050"/>
+          <stop offset="100%" stop-color="#0d0838"/>
+        </linearGradient>
+        <!-- front mountains: near-black, like the photo foreground -->
+        <linearGradient id="mFrontG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0a0630"/>
+          <stop offset="100%" stop-color="#05031a"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Sky -->
+      <rect width="640" height="900" fill="url(#skyG)"/>
+
+      <!-- Horizon glow — warm band like in the photo -->
+      <ellipse cx="320" cy="580" rx="340" ry="60" fill="rgba(200,120,100,0.18)"/>
+      <ellipse cx="320" cy="590" rx="220" ry="35" fill="rgba(220,140,80,0.12)"/>
+
+      <!--
+        FAR mountains — organic, smooth silhouette
+        These are BEHIND the front ones, lighter value
+        The shape mimics the photo: gradual rises and falls, NOT teeth
+      -->
+      <path d="
+        M-20,900
+        L-20,640
+        C 30,620 60,580 90,550
+        C 120,520 140,510 160,490
+        C 180,470 195,455 215,440
+        C 235,425 255,415 270,395
+        C 285,375 298,360 315,348
+        C 332,336 350,330 368,318
+        C 386,306 400,295 420,285
+        C 440,275 460,268 480,258
+        C 500,248 518,240 535,230
+        C 552,220 565,215 580,205
+        C 595,195 610,185 630,178
+        L 660,168
+        L 660,900
+        Z
+      " fill="url(#mFarG)" opacity="0.6"/>
+
+      <!--
+        FRONT mountains — the dramatic near-black silhouette
+        Like the photo: jagged but ORGANIC peaks (Tetons/Dolomites style)
+        Some peaks are very sharp, others more rounded
+        The overall ridge reads as a continuous skyline
+      -->
+      <path d="
+        M-20,900
+        L-20,720
+        C -10,710 0,700 10,688
+        C 20,676 28,665 35,650
+        C 42,635 46,622 52,608
+        C 58,594 64,582 72,568
+        C 80,554 85,542 90,528
+        C 95,514 99,500 104,486
+
+        C 108,472 112,462 118,450
+        L 126,435
+        C 130,426 133,416 136,404
+        C 139,392 140,380 142,368
+        C 144,356 146,346 150,335
+        L 156,318
+        C 159,308 162,298 166,288
+        C 170,278 175,270 180,260
+        C 185,250 190,242 196,232
+        C 202,222 208,214 215,204
+
+        L 222,192
+        C 226,184 229,174 232,163
+        C 235,152 236,140 238,128
+        C 240,116 242,104 245,94
+        C 248,84 252,75 258,66
+
+        L 268,52
+        C 272,44 276,36 282,29
+        C 288,22 295,17 303,13
+        C 311,9 320,8 328,10
+        C 336,12 342,16 348,22
+        C 354,28 358,36 362,45
+
+        L 370,60
+        C 373,68 375,76 378,86
+        C 381,96 384,107 388,118
+        C 392,129 396,140 401,150
+
+        L 408,162
+        C 412,170 416,178 421,186
+        C 426,194 432,202 438,210
+        C 444,218 450,226 456,234
+
+        L 465,248
+        C 469,255 472,262 476,270
+        C 480,278 484,288 488,298
+        L 494,314
+        C 497,323 499,332 501,341
+        C 503,350 505,360 508,370
+
+        L 514,386
+        C 517,396 520,405 524,414
+        C 528,423 533,432 538,440
+
+        L 546,455
+        C 550,463 553,470 556,478
+        C 559,486 561,494 563,502
+        C 565,510 567,520 570,530
+
+        L 575,546
+        C 578,556 581,566 585,576
+        C 589,586 594,596 600,605
+
+        L 610,620
+        C 616,628 622,636 630,643
+        L 660,658
+        L 660,900
+        Z
+      " fill="url(#mFrontG)"/>
+
+      <!-- Ant trail — dots wandering up the slope, in perspective (larger near bottom) -->
+      <!-- These read as pheromone/footprint trail, not the ant itself -->
+      <circle cx="95"  cy="870" r="4.5" fill="#003399" opacity="0.5"/>
+      <circle cx="112" cy="858" r="4.0" fill="#003399" opacity="0.48"/>
+      <circle cx="130" cy="845" r="3.5" fill="#003399" opacity="0.45"/>
+
+      <circle cx="152" cy="828" r="3.0" fill="#003399" opacity="0.42"/>
+      <circle cx="172" cy="812" r="2.7" fill="#003399" opacity="0.4"/>
+      <circle cx="193" cy="794" r="2.3" fill="#003399" opacity="0.37"/>
+
+      <circle cx="215" cy="775" r="2.0" fill="#003399" opacity="0.34"/>
+      <circle cx="236" cy="756" r="1.7" fill="#003399" opacity="0.31"/>
+      <circle cx="255" cy="736" r="1.5" fill="#003399" opacity="0.28"/>
+
+      <circle cx="272" cy="716" r="1.3" fill="#003399" opacity="0.25"/>
+      <circle cx="286" cy="696" r="1.1" fill="#003399" opacity="0.22"/>
+      <circle cx="298" cy="676" r="0.9" fill="#003399" opacity="0.19"/>
+
+      <!-- Ghost text — very subtle, in the sky area -->
+      <text x="350" y="220" fill="rgba(255,255,255,0.08)" font-family="Constantia, Georgia, serif" font-size="30" font-style="italic">Investigue.</text>
+      <text x="388" y="260" fill="rgba(255,255,255,0.05)" font-family="Constantia, Georgia, serif" font-size="20" font-style="italic">Valide.</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     MOUNTAIN DIVIDER: hero(cream) → method(white)
+     Organic silhouette, not saw-teeth
+════════════════════════════════════════════════ -->
+<div style="background:var(--claro);overflow:hidden;line-height:0;">
+  <svg viewBox="0 0 1440 110" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="100%" style="display:block;background:#fff;">
+    <path d="
+      M0,110 L0,75
+      C 40,68 70,55 100,42
+      C 115,36 128,28 142,18
+      C 148,13 153,8 158,4
+      C 162,1 166,-1 170,2
+      C 174,5 177,11 181,18
+      C 185,25 188,32 193,38
+      C 198,44 204,50 212,55
+      C 220,60 230,64 242,66
+      C 254,68 265,67 276,63
+      C 287,59 296,52 304,45
+      C 312,38 318,30 323,22
+      C 328,14 332,7 337,3
+      C 341,0 345,-1 349,2
+      C 353,5 355,11 358,18
+      C 361,25 363,33 367,40
+      C 371,47 376,53 383,58
+      C 390,63 399,66 410,67
+      C 421,68 433,66 444,61
+      C 455,56 464,48 472,40
+      C 480,32 486,23 491,15
+      C 494,10 497,5 501,2
+      C 505,-1 510,-1 514,3
+      C 518,7 520,14 523,22
+      C 526,30 529,38 533,45
+      C 537,52 542,58 549,63
+      C 556,68 565,71 576,72
+      C 587,73 599,71 610,66
+      C 621,61 630,53 638,44
+      C 646,35 652,25 657,16
+      C 660,10 662,5 666,2
+      C 670,-1 675,0 679,4
+      C 683,8 685,14 688,22
+      C 691,30 694,38 698,46
+      C 702,54 707,61 714,66
+      C 721,71 730,74 741,74
+      C 752,74 763,71 773,65
+      C 783,59 791,51 798,42
+      C 805,33 810,23 814,14
+      C 817,8 819,3 823,1
+      C 827,-1 832,0 836,4
+      C 840,8 842,15 845,23
+      C 848,31 851,39 855,47
+      C 859,55 864,62 871,67
+      C 878,72 887,75 898,75
+      C 909,75 920,72 930,66
+      C 940,60 948,51 955,42
+      C 962,33 967,23 971,14
+      C 974,8 976,3 980,0
+      C 984,-2 989,-1 993,3
+      C 997,7 999,14 1002,22
+      C 1005,30 1008,39 1012,47
+      C 1016,55 1021,62 1028,67
+      C 1035,72 1044,74 1055,74
+      C 1066,74 1077,70 1087,64
+      C 1097,58 1105,49 1112,40
+      C 1119,31 1123,21 1127,13
+      C 1130,7 1132,3 1136,0
+      C 1140,-2 1145,-1 1149,4
+      C 1153,9 1155,16 1158,24
+      C 1161,32 1164,41 1168,49
+      C 1172,57 1177,64 1184,69
+      C 1191,74 1200,76 1211,75
+      C 1222,74 1233,70 1243,63
+      C 1253,56 1261,47 1268,37
+      C 1275,27 1279,17 1282,9
+      C 1285,4 1288,0 1292,0
+      C 1296,0 1300,4 1303,10
+      C 1306,16 1308,24 1311,33
+      C 1314,42 1317,51 1321,59
+      C 1325,67 1330,73 1337,77
+      C 1350,82 1375,85 1400,84
+      C 1420,83 1432,80 1440,76
+      L 1440,110
+      Z
+    " fill="#fff"/>
+  </svg>
+</div>
+
+<!-- METODOLOGIA -->
+<section class="section section-white" id="metodo">
+  <div class="section-label">Metodologia</div>
+  <h2 class="section-title">Mirror-Problem-<em>First</em></h2>
+  <p class="section-subtitle">Antes de propor qualquer solução, você precisa encontrar o problema. Uma narrativa fictícia, fiel à realidade de uma empresa — cheia de sinais que só os mais atentos enxergam.</p>
+
+  <div class="method-grid">
+    <div class="method-card">
+      <span class="method-num">01</span>
+      <div class="method-bar" style="background:var(--azul);"></div>
+      <div class="method-card-title">A Narrativa</div>
+      <p>Você recebe uma <span class="highlight">história fictícia</span> inspirada no cotidiano real de uma empresa. Dados, documentos, métricas — tudo propositalmente cheio de inconsistências sutis.</p>
+    </div>
+    <div class="method-card">
+      <span class="method-num">02</span>
+      <div class="method-bar" style="background:var(--magenta);"></div>
+      <div class="method-card-title">A Investigação</div>
+      <p>Sua equipe investiga e constrói hipóteses. Um <span class="highlight">mentor dedicado</span> da empresa guia com perguntas socráticas — nunca com respostas. O raciocínio é seu.</p>
+    </div>
+    <div class="method-card">
+      <span class="method-num">03</span>
+      <div class="method-bar" style="background:var(--laranja);"></div>
+      <div class="method-card-title">A Defesa</div>
+      <p>Antes da solução, você <span class="highlight">defende o problema</span> diante de uma banca híbrida. Representantes da empresa e avaliadores externos. Quem identifica melhor, lidera.</p>
+    </div>
+  </div>
+
+  <!-- Ant trail as section divider: wandering dots, in perspective, left to right -->
+  <div class="trail-divider">
+    <svg width="420" height="28" viewBox="0 0 420 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- The trail wanders slightly up and down like a real ant path -->
+      <circle cx="12"  cy="20" r="4.5" fill="#003399" opacity="0.18"/>
+      <circle cx="30"  cy="16" r="4.0" fill="#003399" opacity="0.19"/>
+      <circle cx="50"  cy="20" r="4.5" fill="#003399" opacity="0.18"/>
+
+      <circle cx="74"  cy="15" r="3.8" fill="#003399" opacity="0.2"/>
+      <circle cx="93"  cy="19" r="4.2" fill="#003399" opacity="0.19"/>
+      <circle cx="113" cy="14" r="3.8" fill="#003399" opacity="0.2"/>
+
+      <circle cx="138" cy="19" r="3.5" fill="#003399" opacity="0.21"/>
+      <circle cx="156" cy="13" r="3.0" fill="#003399" opacity="0.22"/>
+      <circle cx="174" cy="18" r="3.5" fill="#003399" opacity="0.21"/>
+
+      <circle cx="197" cy="12" r="3.0" fill="#003399" opacity="0.23"/>
+      <circle cx="214" cy="17" r="3.3" fill="#003399" opacity="0.22"/>
+      <circle cx="231" cy="11" r="2.8" fill="#003399" opacity="0.24"/>
+
+      <circle cx="252" cy="16" r="2.5" fill="#003399" opacity="0.25"/>
+      <circle cx="268" cy="10" r="2.2" fill="#003399" opacity="0.26"/>
+      <circle cx="284" cy="15" r="2.5" fill="#003399" opacity="0.25"/>
+
+      <circle cx="303" cy="9"  r="2.0" fill="#003399" opacity="0.27"/>
+      <circle cx="318" cy="14" r="2.2" fill="#003399" opacity="0.26"/>
+      <circle cx="333" cy="8"  r="1.8" fill="#003399" opacity="0.28"/>
+
+      <circle cx="350" cy="13" r="1.6" fill="#003399" opacity="0.27"/>
+      <circle cx="364" cy="7"  r="1.4" fill="#003399" opacity="0.26"/>
+      <circle cx="378" cy="12" r="1.6" fill="#003399" opacity="0.25"/>
+
+      <circle cx="394" cy="6"  r="1.2" fill="#003399" opacity="0.22"/>
+      <circle cx="407" cy="11" r="1.0" fill="#003399" opacity="0.2"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     MOUNTAIN DIVIDER: white → blue
+     Organic silhouette reading right-to-left (peaks pointing up, blue below)
+════════════════════════════════════════════════ -->
+<div style="background:#fff;overflow:hidden;line-height:0;">
+  <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="100%" style="display:block;background:var(--azul-escuro);">
+    <path d="
+      M0,0 L0,55
+      C 25,52 45,46 65,36
+      C 78,28 87,18 94,9
+      C 98,4 101,0 105,0
+      C 109,0 113,4 116,10
+      C 119,16 121,24 124,32
+      C 127,40 130,48 134,55
+      C 138,62 143,68 150,72
+      C 157,76 166,78 177,77
+      C 188,76 199,71 208,64
+      C 217,57 224,47 229,37
+      C 234,27 237,17 240,9
+      C 243,4 246,0 250,0
+      C 254,0 258,4 261,10
+      C 264,16 266,24 269,33
+      C 272,42 275,51 279,59
+      C 283,67 288,74 295,79
+      C 302,84 311,86 322,85
+      C 333,84 344,79 353,72
+      C 362,65 369,55 374,44
+      C 379,33 382,22 384,13
+      C 386,7 388,2 392,0
+      C 396,-2 401,-1 405,4
+      C 409,9 411,17 414,26
+      C 417,35 419,44 422,53
+      C 425,62 429,70 435,76
+      C 441,82 449,85 459,85
+      C 469,85 480,81 489,74
+      C 498,67 505,57 510,46
+      C 515,35 518,23 520,13
+      C 522,7 524,2 528,0
+      C 532,-2 537,-1 541,4
+      C 545,9 547,17 550,27
+      C 553,37 556,47 560,56
+      C 564,65 569,73 576,78
+      C 583,83 592,85 603,84
+      C 614,83 625,78 634,70
+      C 643,62 650,51 655,40
+      C 660,29 663,17 665,8
+      C 667,3 669,0 673,0
+      C 677,0 681,4 684,11
+      C 687,18 689,27 692,37
+      C 695,47 698,57 702,65
+      C 706,73 711,79 718,83
+      C 725,87 734,87 745,85
+      C 756,83 767,77 776,68
+      C 785,59 792,48 797,36
+      C 802,24 805,12 807,4
+      C 809,-1 811,-2 815,1
+      C 819,4 822,11 825,20
+      C 828,29 831,39 834,49
+      C 837,59 841,68 847,75
+      C 853,82 861,86 871,86
+      C 881,86 892,82 901,75
+      C 910,68 917,57 922,46
+      C 927,35 930,23 932,13
+      C 934,7 936,2 940,0
+      C 944,-2 949,0 952,5
+      C 955,10 957,18 960,28
+      C 963,38 966,49 970,58
+      C 974,67 979,74 986,79
+      C 993,84 1002,85 1013,83
+      C 1024,81 1035,75 1044,66
+      C 1053,57 1060,46 1065,34
+      C 1070,22 1073,10 1075,3
+      C 1077,-1 1079,-2 1083,1
+      C 1087,4 1090,11 1093,21
+      C 1096,31 1099,42 1103,52
+      C 1107,62 1112,70 1119,76
+      C 1126,82 1135,85 1146,84
+      C 1157,83 1168,78 1177,70
+      C 1186,62 1193,51 1198,39
+      C 1203,27 1206,15 1208,6
+      C 1210,1 1212,-1 1216,1
+      C 1220,3 1223,10 1226,19
+      C 1229,28 1232,38 1235,48
+      C 1238,58 1242,67 1248,74
+      C 1254,81 1262,84 1272,84
+      C 1289,84 1310,78 1330,70
+      C 1350,62 1370,52 1390,45
+      C 1405,40 1422,36 1440,34
+      L 1440,0
+      Z
+    " fill="#fff"/>
+  </svg>
+</div>
+
+<!-- PARA EMPRESAS -->
+<section class="section section-blue" id="empresas">
+  <div class="companies-grid">
+    <div>
+      <div class="section-label">Para empresas</div>
+      <h2 class="section-title">Mais que patrocínio.<br><em>Imersão real.</em></h2>
+      <p class="section-subtitle">O Connect funciona como um processo seletivo disfarçado de competição. Você observa raciocínio analítico, comunicação e resiliência em ação — sem roteiro.</p>
+      <a href="#" class="btn-white">Quero ser parceiro</a>
+    </div>
+    <div>
+      <ul class="benefit-list">
+        <li>Processo seletivo imersivo — observe os candidatos trabalhando, não sendo entrevistados</li>
+        <li>Soluções aplicáveis geradas para os seus processos internos reais</li>
+        <li>Employer branding junto a jovens de alto potencial de Florianópolis</li>
+        <li>Possibilidade de oferecer vaga de estágio ao vencedor do seu escopo</li>
+        <li>Mentor dedicado representando sua empresa dentro do evento</li>
+        <li>Banca avaliadora com peso dobrado para a empresa-dona do caso</li>
+      </ul>
+      <!-- Mini mountain silhouette + trail inside blue section -->
+      <svg width="100%" viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg" style="display:block;opacity:0.25;">
+        <path d="
+          M0,60 L0,42
+          C 30,35 55,26 75,14
+          C 82,9 87,4 92,1
+          C 96,-1 99,0 102,4
+          C 105,8 107,14 110,21
+          C 113,28 116,34 121,39
+          C 126,44 132,47 140,48
+          C 148,49 157,47 165,42
+          C 173,37 179,29 183,21
+          C 187,13 189,6 192,2
+          C 195,-1 198,-1 201,3
+          C 204,7 206,14 209,22
+          C 212,30 215,37 220,43
+          C 225,49 232,52 241,52
+          C 250,52 259,49 267,43
+          C 275,37 281,28 285,19
+          C 289,10 291,3 294,0
+          C 297,-2 300,-1 303,3
+          C 306,7 308,14 311,23
+          C 314,32 317,40 322,46
+          C 327,52 334,55 343,55
+          C 360,55 385,50 400,44
+          L 400,60 Z
+        " fill="rgba(251,244,233,1)"/>
+        <!-- trail dots on the mountain -->
+        <circle cx="60"  cy="52" r="2.5" fill="rgba(251,244,233,0.8)"/>
+        <circle cx="80"  cy="46" r="2.2" fill="rgba(251,244,233,0.8)"/>
+        <circle cx="102" cy="40" r="1.9" fill="rgba(251,244,233,0.7)"/>
+        <circle cx="125" cy="34" r="1.6" fill="rgba(251,244,233,0.65)"/>
+        <circle cx="148" cy="28" r="1.3" fill="rgba(251,244,233,0.6)"/>
+        <circle cx="170" cy="22" r="1.1" fill="rgba(251,244,233,0.55)"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     BRIDGE + MOUNTAIN DIVIDER: blue → cream
+════════════════════════════════════════════════ -->
+<div style="background:var(--azul-escuro);overflow:hidden;line-height:0;">
+  <svg viewBox="0 0 1440 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="100%" style="display:block;background:var(--claro);">
+    <!-- Bridge deck sits on top of the blue, then cream fills below -->
+    
+    <!-- Bridge deck -->
+    <rect x="0" y="72" width="1440" height="7" fill="var(--azul-escuro)"/>
+    <!-- Top railing -->
+    <rect x="0" y="60" width="1440" height="2.5" fill="var(--azul-escuro)" opacity="0.85"/>
+    <!-- Mid railing -->
+    <rect x="0" y="67" width="1440" height="1.5" fill="var(--azul-escuro)" opacity="0.7"/>
+
+    <!-- Vertical posts -->
+    <line x1="120"  y1="56" x2="120"  y2="79" stroke="var(--azul-escuro)" stroke-width="2.5" opacity="0.9"/>
+    <line x1="240"  y1="56" x2="240"  y2="79" stroke="var(--azul-escuro)" stroke-width="2.5" opacity="0.9"/>
+    <line x1="360"  y1="56" x2="360"  y2="79" stroke="var(--azul-escuro)" stroke-width="2.5" opacity="0.9"/>
+    <line x1="480"  y1="56" x2="480"  y2="79" stroke="var(--azul-escuro)" stroke-width="2.5" opacity="0.9"/>
+    <line x1="600"  y1="56" x2="600"  y2="79" stroke="var(--azul-escuro)" stroke-width="2.5" opacity="0.9"/>
+    <line x1="720"  y1="56" x2="720"  y2="79" stroke="var(--azul-escuro)" stroke-width="2.5" opacity="0.9"/>
+    <line x1="840"  y1="56" x2="840"  y2="79" stroke="var(--azul-escuro)" stroke-width="2.5" opacity="0.9"/>
+    <line x1="960"  y1="56" x2="960"  y2="79" stroke="var(--azul-escuro)" stroke-width="2.5" opacity="0.9"/>
+    <line x1="1080" y1="56" x2="1080" y2="79" stroke="var(--azul-escuro)" stroke-width="2.5" opacity="0.9"/>
+    <line x1="1200" y1="56" x2="1200" y2="79" stroke="var(--azul-escuro)" stroke-width="2.5" opacity="0.9"/>
+    <line x1="1320" y1="56" x2="1320" y2="79" stroke="var(--azul-escuro)" stroke-width="2.5" opacity="0.9"/>
+
+    <!-- Left suspension tower -->
+    <rect x="304" y="10" width="10" height="69" fill="var(--azul-escuro)"/>
+    <rect x="294" y="8" width="30" height="5" fill="var(--azul-escuro)" rx="1"/>
+    <!-- Right suspension tower -->
+    <rect x="1126" y="10" width="10" height="69" fill="var(--azul-escuro)"/>
+    <rect x="1116" y="8" width="30" height="5" fill="var(--azul-escuro)" rx="1"/>
+
+    <!-- Main cables — catenary from towers -->
+    <path d="M309 10 Q600 50 720 72" fill="none" stroke="var(--azul-escuro)" stroke-width="2" opacity="0.9"/>
+    <path d="M309 10 Q160 45 0 72"   fill="none" stroke="var(--azul-escuro)" stroke-width="2" opacity="0.9"/>
+    <path d="M1131 10 Q840 50 720 72" fill="none" stroke="var(--azul-escuro)" stroke-width="2" opacity="0.9"/>
+    <path d="M1131 10 Q1280 45 1440 72" fill="none" stroke="var(--azul-escuro)" stroke-width="2" opacity="0.9"/>
+    <!-- Mid span cable -->
+    <path d="M309 10 Q720 38 1131 10" fill="none" stroke="var(--azul-escuro)" stroke-width="1.5" opacity="0.6"/>
+
+    <!-- Hanger wires -->
+    <line x1="420"  y1="36" x2="420"  y2="72" stroke="var(--azul-escuro)" stroke-width="0.9" opacity="0.5"/>
+    <line x1="510"  y1="29" x2="510"  y2="72" stroke="var(--azul-escuro)" stroke-width="0.9" opacity="0.5"/>
+    <line x1="600"  y1="25" x2="600"  y2="72" stroke="var(--azul-escuro)" stroke-width="0.9" opacity="0.5"/>
+    <line x1="660"  y1="24" x2="660"  y2="72" stroke="var(--azul-escuro)" stroke-width="0.9" opacity="0.5"/>
+    <line x1="720"  y1="23" x2="720"  y2="72" stroke="var(--azul-escuro)" stroke-width="0.9" opacity="0.5"/>
+    <line x1="780"  y1="24" x2="780"  y2="72" stroke="var(--azul-escuro)" stroke-width="0.9" opacity="0.5"/>
+    <line x1="840"  y1="25" x2="840"  y2="72" stroke="var(--azul-escuro)" stroke-width="0.9" opacity="0.5"/>
+    <line x1="930"  y1="29" x2="930"  y2="72" stroke="var(--azul-escuro)" stroke-width="0.9" opacity="0.5"/>
+    <line x1="1020" y1="36" x2="1020" y2="72" stroke="var(--azul-escuro)" stroke-width="0.9" opacity="0.5"/>
+
+    <!-- Person silhouette leaning on railing -->
+    <ellipse cx="862" cy="56" rx="5" ry="6" fill="var(--azul-escuro)"/>
+    <rect x="858" y="62" width="8" height="16" rx="2" fill="var(--azul-escuro)"/>
+    <path d="M858 66 Q845 69 838 70" stroke="var(--azul-escuro)" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <line x1="860" y1="78" x2="856" y2="88" stroke="var(--azul-escuro)" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="866" y1="78" x2="870" y2="88" stroke="var(--azul-escuro)" stroke-width="3.5" stroke-linecap="round"/>
+
+    <!-- Ant trail on bridge deck -->
+    <circle cx="160" cy="69" r="2.8" fill="#003399" opacity="0.35"/>
+    <circle cx="180" cy="68" r="2.5" fill="#003399" opacity="0.33"/>
+    <circle cx="200" cy="69" r="2.2" fill="#003399" opacity="0.30"/>
+    <circle cx="222" cy="68" r="2.0" fill="#003399" opacity="0.28"/>
+    <circle cx="242" cy="69" r="1.8" fill="#003399" opacity="0.26"/>
+
+    <!-- Cream fill below bridge -->
+    <rect x="0" y="79" width="1440" height="51" fill="var(--claro)"/>
+  </svg>
+</div>
+
+<!-- COMO FUNCIONA -->
+<section class="section section-cream" id="como">
+  <div class="section-label">Passo a passo</div>
+  <h2 class="section-title">Do problema<br><em>à solução</em></h2>
+  <p class="section-subtitle">Quatro etapas que separam o participante comum do talento que as empresas estão procurando.</p>
+
+  <div class="steps-grid">
+    <div class="step step-1">
+      <span class="step-num">01</span>
+      <div class="step-title">Narrativa</div>
+      <p>Sua equipe recebe a história fictícia e os dados da empresa. O problema está escondido. Começa a caçada.</p>
+    </div>
+    <div class="step step-2">
+      <span class="step-num">02</span>
+      <div class="step-title">Investigação</div>
+      <p>Com ajuda do mentor e do ConnectAI, você valida hipóteses, acessa dados reais e defende seu raciocínio.</p>
+    </div>
+    <div class="step step-3">
+      <span class="step-num">03</span>
+      <div class="step-title">Defesa do Problema</div>
+      <p>Antes da solução, você apresenta o problema identificado. Clareza e lógica valem mais que slides bonitos.</p>
+    </div>
+    <div class="step step-4">
+      <span class="step-num">04</span>
+      <div class="step-title">Pitch Final</div>
+      <p>Com o problema validado, vem a solução. Banca híbrida — peso dobrado para a empresa do seu caso.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER cream → white (mountain, subtle) -->
+<div style="background:var(--claro);overflow:hidden;line-height:0;">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="100%" style="display:block;background:#fff;">
+    <path d="
+      M0,80 L0,50
+      C 50,44 90,34 120,20
+      C 135,13 144,6 150,1
+      C 154,-2 157,-1 160,4
+      C 163,9 165,17 168,26
+      C 171,35 174,43 178,50
+      C 185,60 195,67 208,70
+      C 221,73 238,71 252,65
+      C 266,59 278,48 286,36
+      C 294,24 298,12 301,4
+      C 304,-1 307,-2 311,3
+      C 315,8 317,17 320,28
+      C 323,39 326,50 330,59
+      C 337,70 348,76 361,77
+      C 374,78 389,73 401,64
+      C 413,55 421,42 426,29
+      C 431,16 433,5 436,0
+      C 439,-3 443,-2 447,4
+      C 451,10 453,20 456,31
+      C 459,42 462,53 466,62
+      C 473,73 483,79 496,80
+      C 527,80 570,75 610,68
+      C 650,61 690,52 730,46
+      C 770,40 810,36 850,34
+      C 890,32 930,32 970,33
+      C 1010,34 1050,37 1090,41
+      C 1130,45 1170,50 1210,54
+      C 1260,59 1310,63 1360,65
+      C 1390,66 1415,66 1440,64
+      L 1440,80
+      Z
+    " fill="#fff"/>
+  </svg>
+</div>
+
+<!-- PARCEIROS -->
+<section class="section section-white" id="parceiros">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:2rem;">
+    <div>
+      <div class="section-label">Ecossistema</div>
+      <h2 class="section-title" style="margin-bottom:0;">Quem está<br><em>junto</em></h2>
+    </div>
+    <p style="color:var(--text-muted);font-size:0.84rem;max-width:280px;line-height:1.75;font-weight:300;">
+      Um evento construído em parceria com instituições e empresas do ecossistema de inovação de Florianópolis.
+    </p>
+  </div>
+
+  <!-- Coming soon state -->
+  <div class="partners-coming">
+    <div class="partners-coming-label">Parceiros e realizadores</div>
+    <div class="partners-coming-title">Em breve</div>
+    <p>Empresas e instituições parceiras estão sendo confirmadas. Se sua organização quer fazer parte do Connect 2026, entre em contato.</p>
+    <a href="#" class="btn-primary" style="margin-top:0.5rem;">Quero ser parceiro</a>
+  </div>
+</section>
+
+<!-- PETEEL BAND -->
+<div class="peteel-band">
+  <span class="peteel-label">Uma realização</span>
+  <span style="width:1px;height:1.1rem;background:rgba(0,51,153,0.15);display:inline-block;"></span>
+  <span class="peteel-name">PETEEL</span>
+  <span style="color:var(--text-muted);font-size:0.78rem;font-weight:300;">Grupo PET · Engenharia Elétrica · UFSC</span>
+</div>
+
+<!-- MOUNTAIN DIVIDER white → blue (CTA) -->
+<div style="background:#fff;overflow:hidden;line-height:0;">
+  <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="100%" style="display:block;background:var(--azul-escuro);">
+    <path d="
+      M0,0 L0,55
+      C 30,48 55,38 75,25
+      C 85,18 91,10 96,4
+      C 100,0 103,0 107,4
+      C 111,8 113,16 116,25
+      C 119,34 122,43 126,51
+      C 130,59 135,66 142,70
+      C 149,74 158,75 168,73
+      C 178,71 188,65 196,56
+      C 204,47 209,35 212,24
+      C 215,13 216,4 220,0
+      C 224,-3 229,-2 233,4
+      C 237,10 239,20 242,31
+      C 245,42 248,53 252,62
+      C 256,71 261,78 268,82
+      C 275,86 284,87 295,85
+      C 306,83 317,77 326,68
+      C 335,59 342,47 346,35
+      C 350,23 352,11 354,4
+      C 356,0 359,-1 363,3
+      C 367,7 369,15 372,26
+      C 375,37 378,48 382,58
+      C 386,68 391,76 398,81
+      C 405,86 414,87 425,85
+      C 436,83 447,77 456,68
+      C 465,59 472,47 476,34
+      C 480,21 482,9 484,2
+      C 486,-2 489,-2 493,3
+      C 497,8 499,17 502,28
+      C 505,39 508,51 512,61
+      C 516,71 521,79 528,84
+      C 535,89 544,90 555,88
+      C 566,86 577,80 586,71
+      C 595,62 602,50 606,37
+      C 610,24 612,12 614,4
+      C 616,0 619,-1 623,3
+      C 627,7 629,16 632,27
+      C 635,38 638,50 642,60
+      C 646,70 651,78 658,83
+      C 665,88 674,89 685,87
+      C 696,85 707,79 716,70
+      C 725,61 731,49 735,36
+      C 739,23 741,11 743,3
+      C 745,-1 748,-2 752,2
+      C 756,6 758,15 761,26
+      C 764,37 767,49 771,59
+      C 775,69 780,77 787,82
+      C 794,87 803,88 814,86
+      C 825,84 836,78 844,68
+      C 852,58 857,45 860,32
+      C 863,19 864,8 866,1
+      C 868,-3 871,-2 875,3
+      C 879,8 881,18 884,30
+      C 887,42 890,54 894,64
+      C 898,74 903,81 910,85
+      C 917,89 926,89 937,86
+      C 955,82 980,72 1010,62
+      C 1040,52 1075,43 1110,36
+      C 1145,29 1185,24 1225,21
+      C 1265,18 1310,17 1355,18
+      C 1385,19 1415,21 1440,24
+      L 1440,0
+      Z
+    " fill="#fff"/>
+  </svg>
+</div>
+
+<!-- CTA FINAL -->
+<section class="section section-blue" id="inscricoes">
+  <div class="cta-inner">
+    <!-- Ant trail above CTA content -->
+    <div style="display:flex;justify-content:center;margin-bottom:2rem;">
+      <svg width="80" height="20" viewBox="0 0 80 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="8"  cy="14" r="4.5" fill="rgba(251,244,233,0.35)"/>
+        <circle cx="26" cy="10" r="5.5" fill="rgba(251,244,233,0.4)"/>
+        <circle cx="46" cy="13" r="4.8" fill="rgba(251,244,233,0.35)"/>
+        <circle cx="64" cy="8"  r="3.8" fill="rgba(251,244,233,0.28)"/>
+      </svg>
+    </div>
+
+    <div class="cta-tag">Inscrições em breve · Agosto 2026</div>
+
+    <h2 class="section-title" style="font-size:clamp(2.2rem,4vw,3.6rem);margin:0 auto 1.2rem;text-align:center;max-width:580px;">
+      Pronto para<br><em>encontrar o problema?</em>
+    </h2>
+
+    <p class="section-subtitle" style="margin:0 auto;text-align:center;">
+      75 vagas. Times de 4 a 5 pessoas. Empresas reais de Florianópolis. Um único evento que pode mudar o rumo da sua carreira.
+    </p>
+
+    <div class="cta-buttons">
+      <a href="#" class="btn-white">Avise-me quando abrir</a>
+      <a href="#" class="btn-outline-white">Seguir no Instagram</a>
+    </div>
+
+    <!-- Bridge silhouette inside CTA, bottom -->
+    <div style="margin-top:5rem;overflow:hidden;line-height:0;">
+      <svg viewBox="0 0 900 70" xmlns="http://www.w3.org/2000/svg" width="100%" style="display:block;">
+        <rect x="0"   y="46" width="900" height="5"   fill="rgba(251,244,233,0.15)"/>
+        <rect x="0"   y="37" width="900" height="2"   fill="rgba(251,244,233,0.1)"/>
+        <rect x="0"   y="42" width="900" height="1.5" fill="rgba(251,244,233,0.08)"/>
+        <line x1="100" y1="33" x2="100" y2="51" stroke="rgba(251,244,233,0.1)" stroke-width="2"/>
+        <line x1="200" y1="33" x2="200" y2="51" stroke="rgba(251,244,233,0.1)" stroke-width="2"/>
+        <line x1="300" y1="33" x2="300" y2="51" stroke="rgba(251,244,233,0.1)" stroke-width="2"/>
+        <line x1="400" y1="33" x2="400" y2="51" stroke="rgba(251,244,233,0.1)" stroke-width="2"/>
+        <line x1="500" y1="33" x2="500" y2="51" stroke="rgba(251,244,233,0.1)" stroke-width="2"/>
+        <line x1="600" y1="33" x2="600" y2="51" stroke="rgba(251,244,233,0.1)" stroke-width="2"/>
+        <line x1="700" y1="33" x2="700" y2="51" stroke="rgba(251,244,233,0.1)" stroke-width="2"/>
+        <line x1="800" y1="33" x2="800" y2="51" stroke="rgba(251,244,233,0.1)" stroke-width="2"/>
+        <path d="M0 51 Q225 18 450 12 Q675 18 900 51" fill="none" stroke="rgba(251,244,233,0.08)" stroke-width="1.5"/>
+        <!-- person -->
+        <ellipse cx="552" cy="35" rx="4" ry="5" fill="rgba(251,244,233,0.18)"/>
+        <rect x="549" y="40" width="6" height="12" rx="2" fill="rgba(251,244,233,0.18)"/>
+        <path d="M549 44 Q540 47 534 48" stroke="rgba(251,244,233,0.15)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">
+      <!-- trail mark -->
+      <div style="display:inline-flex;gap:4px;align-items:center;opacity:0.4;">
+        <span style="display:block;width:4px;height:4px;background:var(--claro);border-radius:50%;transform:translate(0,2px);"></span>
+        <span style="display:block;width:6px;height:6px;background:var(--claro);border-radius:50%;"></span>
+        <span style="display:block;width:4px;height:4px;background:var(--claro);border-radius:50%;transform:translate(0,-2px);"></span>
+      </div>
+      Connect
+    </div>
+    <div class="footer-peteel">Uma realização PETEEL · Florianópolis 2026</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#metodo">Metodologia</a></li>
+    <li><a href="#empresas">Empresas</a></li>
+    <li><a href="#parceiros">Parceiros</a></li>
+    <li><a href="#">Instagram</a></li>
+  </ul>
+  <div class="footer-info">Agosto 2026</div>
+</footer>
+
+</body>
+</html>
