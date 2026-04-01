@@ -6,7 +6,7 @@ export const siteConfig = {
     data: 'Agosto 2026',
     registrationsOpen: false,
     registrationsUrl: '',
-    instagram: 'https://instagram.com/connectideathon',
+    instagram: 'https://www.instagram.com/connect.ideathon/',
     email: 'connect@peteel.ufsc.br',
   },
 
