@@ -1,0 +1,147 @@
+.section {
+  background: #fff;
+  padding: 96px 0 80px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.67rem;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--azul-detalhe);
+  margin-bottom: 12px;
+}
+.eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: var(--azul-detalhe);
+}
+
+.title {
+  font-family: var(--font-condensed);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--azul-escuro);
+  line-height: 1.1;
+  margin-bottom: 0;
+}
+.title em {
+  font-style: italic;
+  color: var(--text-muted);
+  font-family: var(--font-serif);
+  font-weight: 600;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.headerDesc {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  max-width: 280px;
+  line-height: 1.75;
+}
+
+.coming {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 64px 32px;
+  border: 1px dashed rgba(0, 51, 153, 0.2);
+  text-align: center;
+}
+
+.comingLabel {
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.comingTitle {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--azul-escuro);
+  font-style: italic;
+}
+
+.coming p {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  max-width: 420px;
+  line-height: 1.7;
+}
+
+.comingCta {
+  margin-top: 8px;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.chip {
+  padding: 8px 20px;
+  border: 1px solid rgba(0, 51, 153, 0.15);
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--azul-escuro);
+}
+
+/* Peteel Band */
+.peteelBand {
+  background: rgba(0, 51, 153, 0.04);
+  border-top: 1px solid rgba(0, 51, 153, 0.08);
+  border-bottom: 1px solid rgba(0, 51, 153, 0.08);
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.peteelLabel {
+  font-size: 0.63rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.peteelSep {
+  width: 1px;
+  height: 18px;
+  background: rgba(0, 51, 153, 0.15);
+  display: inline-block;
+}
+
+.peteelName {
+  font-family: var(--font-condensed);
+  font-size: 0.88rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--azul);
+}
+
+.peteelDesc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}

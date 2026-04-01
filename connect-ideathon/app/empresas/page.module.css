@@ -1,0 +1,111 @@
+.page {
+  background: var(--claro);
+  min-height: 80vh;
+  padding: 96px 0 80px;
+}
+
+.inner {
+  max-width: 560px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.67rem;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--azul-detalhe);
+  margin-bottom: 12px;
+}
+.eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: var(--azul-detalhe);
+}
+
+.title {
+  font-family: var(--font-condensed);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--azul-escuro);
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+.title em {
+  font-style: italic;
+  color: var(--magenta);
+  font-family: var(--font-serif);
+  font-weight: 600;
+}
+
+.desc {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 48px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--azul-escuro);
+  letter-spacing: 0.02em;
+}
+
+.field input,
+.field textarea {
+  border: 1px solid var(--claro-escuro);
+  background: #fff;
+  border-radius: 4px;
+  padding: 12px 16px;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--text-dark);
+  outline: none;
+  transition: border-color 0.2s;
+  resize: vertical;
+}
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--azul);
+}
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.submit {
+  align-self: flex-start;
+  background: var(--azul);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 0.9375rem;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 32px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.submit:hover {
+  background: var(--azul-detalhe);
+  transform: translateY(-2px);
+}

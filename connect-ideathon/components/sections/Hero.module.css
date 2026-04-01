@@ -1,0 +1,158 @@
+.hero {
+  background: var(--claro);
+  padding: 96px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 48px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--azul);
+  margin-bottom: 20px;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--azul);
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: var(--font-condensed);
+  font-size: clamp(2.75rem, 5vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--azul-escuro);
+  margin-bottom: 24px;
+}
+
+.serif {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-style: italic;
+  color: var(--magenta);
+  display: block;
+}
+
+.accent {
+  color: var(--azul);
+  display: block;
+}
+
+.desc {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 500px;
+  margin-bottom: 36px;
+}
+
+.ctas {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 52px;
+  padding-top: 32px;
+  border-top: 1px solid var(--claro-escuro);
+}
+
+.statValue {
+  font-family: var(--font-condensed);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--azul-escuro);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.antTrailWrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+}
+
+.badge {
+  background: #fff;
+  border: 2px solid var(--claro-escuro);
+  border-radius: 24px;
+  padding: 40px 48px;
+  text-align: center;
+  box-shadow: 0 8px 40px rgba(29, 78, 216, 0.08);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badgeEvent {
+  font-family: var(--font-condensed);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.badgeName {
+  font-family: var(--font-condensed);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--azul-escuro);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.badgeYear {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--azul);
+  margin-top: 4px;
+}
+
+.badgeCity {
+  margin-top: 16px;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
