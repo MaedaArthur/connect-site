@@ -1,0 +1,53 @@
+<h2>Design: Connect Ideathon — Next.js 14</h2>
+<p class="subtitle">Seção 2 de 3 — Componentes e comportamentos dinâmicos</p>
+
+<div class="section">
+  <div class="label">Componentes UI reutilizáveis</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-top:0.5rem;">
+    <div style="background:#f8f8f8;border:1px solid #ddd;border-radius:6px;padding:0.9rem;">
+      <strong style="font-size:0.85rem;">MountainDivider</strong>
+      <p style="font-size:0.8rem;margin-top:0.3rem;color:#555;">Props: <code>fromColor</code>, <code>toColor</code>, <code>flip?</code>, <code>variant?: "A"|"B"|"C"</code>. SVGs com Bézier preservados do HTML de referência. Usado 4× na landing.</p>
+    </div>
+    <div style="background:#f8f8f8;border:1px solid #ddd;border-radius:6px;padding:0.9rem;">
+      <strong style="font-size:0.85rem;">BridgeDivider</strong>
+      <p style="font-size:0.8rem;margin-top:0.3rem;color:#555;">Props: <code>fromColor</code>, <code>toColor</code>, <code>showFigure?</code>, <code>showAntTrail?</code>. Cabos catenários + silhueta humana do HTML preservados.</p>
+    </div>
+    <div style="background:#f8f8f8;border:1px solid #ddd;border-radius:6px;padding:0.9rem;">
+      <strong style="font-size:0.85rem;">AntTrail</strong>
+      <p style="font-size:0.8rem;margin-top:0.3rem;color:#555;">Props: <code>direction?: "horizontal"|"ascending"</code>, <code>color?</code>, <code>opacity?</code>. Pontos em perspectiva (raio e opacidade decrescentes) extraídos do HTML.</p>
+    </div>
+    <div style="background:#f8f8f8;border:1px solid #ddd;border-radius:6px;padding:0.9rem;">
+      <strong style="font-size:0.85rem;">Button</strong>
+      <p style="font-size:0.8rem;margin-top:0.3rem;color:#555;">Variantes: <code>primary</code>, <code>secondary</code>, <code>white</code>, <code>outline-white</code>. Renderiza <code>&lt;a&gt;</code> ou <code>&lt;button&gt;</code> conforme prop <code>href</code>.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="label">Comportamentos automáticos (via config/site.ts)</div>
+  <div style="display:flex;flex-direction:column;gap:0.6rem;margin-top:0.5rem;">
+    <div style="background:#eef7ee;border:1px solid #b0d8b0;border-radius:6px;padding:0.8rem;font-size:0.83rem;">
+      <strong>Inscrições fechadas → abertas:</strong> Mudar <code>event.registrationsOpen</code> para <code>true</code> e preencher <code>registrationsUrl</code>. Automaticamente, Hero e CTA trocam "Avise-me" por "Inscrever agora" apontando para a URL.
+    </div>
+    <div style="background:#eef7ee;border:1px solid #b0d8b0;border-radius:6px;padding:0.8rem;font-size:0.83rem;">
+      <strong>Parceiros "em breve" → confirmados:</strong> Adicionar <code>parceiros.realizadores[]</code> em <code>site.ts</code>. O componente <code>Parceiros.tsx</code> detecta o array e renderiza os chips automaticamente — sem <code>if</code> espalhado.
+    </div>
+    <div style="background:#eef7ee;border:1px solid #b0d8b0;border-radius:6px;padding:0.8rem;font-size:0.83rem;">
+      <strong>Logo texto → gráfica:</strong> Colocar arquivo em <code>public/logo.svg</code> e mudar <code>theme.logo.textMode</code> para <code>false</code>. Nav e Footer atualizam automaticamente.
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="label">Página /empresas — formulário</div>
+  <div style="background:#fff8ee;border:1px solid #f0d090;border-radius:6px;padding:0.8rem;font-size:0.83rem;">
+    Form com campos: Nome da empresa, Nome do responsável, Email, Mensagem (opcional). Sem action de backend por enquanto — marcado com <code>{'/* TODO: plugar backend aqui */'}</code>. Visual idêntico ao resto do site (CSS vars + mesma tipografia). Fácil de trocar para <code>mailto:</code>, Netlify Forms ou qualquer API depois.
+  </div>
+</div>
+
+<div class="section">
+  <div class="label">Animações e responsividade</div>
+  <p style="font-size:0.83rem;color:#555;"><code>@keyframes fadeUp</code> com delays escalonados no Hero preservados em CSS puro (sem Framer Motion). Breakpoint em 960px: nav collapsa, hero vira 1 coluna, steps vira 2×2, footer empilha.</p>
+</div>
+
+<p style="margin-top:1.5rem;font-size:0.9rem;color:#555;">Esta seção está ok? Confirme para ver a última (ordem das seções na landing + sequência de implementação).</p>

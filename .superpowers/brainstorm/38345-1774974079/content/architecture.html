@@ -1,0 +1,47 @@
+<h2>Design: Connect Ideathon — Next.js 14</h2>
+<p class="subtitle">Seção 1 de 3 — Estrutura e sistema de configuração</p>
+
+<div class="section">
+  <div class="label">Localização do projeto</div>
+  <p>Scaffolding direto em <code>/home/arthur/dev/Connect/Site/</code> via <code>create-next-app</code> com flags <code>--typescript --tailwind --app --no-src-dir</code>.</p>
+</div>
+
+<div class="section">
+  <div class="label">Sistema de configuração — fonte única de verdade</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:0.5rem;">
+    <div style="background:#f8f8f8;border:1px solid #ddd;border-radius:6px;padding:1rem;">
+      <div class="label">config/site.ts</div>
+      <p style="margin-top:0.4rem;font-size:0.85rem;">Todos os textos, dados do evento, flags (registrationsOpen, registrationsUrl), URLs e listas de conteúdo. A equipe edita só este arquivo para mudar textos.</p>
+    </div>
+    <div style="background:#f8f8f8;border:1px solid #ddd;border-radius:6px;padding:1rem;">
+      <div class="label">config/theme.ts</div>
+      <p style="margin-top:0.4rem;font-size:0.85rem;">Todas as cores, fontes e tokens visuais. O <code>app/layout.tsx</code> importa e injeta como CSS variables no <code>&lt;head&gt;</code> (Abordagem C).</p>
+    </div>
+  </div>
+  <div style="background:#eef4ff;border:1px solid #c0d0ff;border-radius:6px;padding:0.8rem;margin-top:0.8rem;font-size:0.85rem;">
+    <strong>Fluxo:</strong> <code>theme.ts</code> → <code>layout.tsx</code> injeta <code>&lt;style&gt;:root{'{'}--azul:#003399...{'}'}</code> → componentes usam <code>var(--azul)</code> via CSS Modules / globals.css
+  </div>
+</div>
+
+<div class="section">
+  <div class="label">Estrutura de arquivos</div>
+  <pre style="background:#1a1a2e;color:#e0e0ff;padding:1rem;border-radius:6px;font-size:0.78rem;line-height:1.6;overflow-x:auto;">connect-site/ (dentro de /Site/)
+├── config/
+│   ├── site.ts       ← textos, dados, flags do evento
+│   └── theme.ts      ← cores, fontes, logo config
+├── public/
+│   └── logo.svg / logo-white.svg (placeholder SVG)
+├── app/
+│   ├── layout.tsx    ← injeta CSS vars + Nav + Footer
+│   ├── page.tsx      ← ordena as seções da landing
+│   ├── globals.css   ← reset + utilitários base
+│   └── empresas/
+│       └── page.tsx  ← formulário para parceiros
+├── components/
+│   ├── layout/  Nav.tsx · Footer.tsx
+│   ├── sections/ Hero · Metodologia · Empresas · ComoFunciona · Parceiros · CTA
+│   └── ui/  MountainDivider · BridgeDivider · AntTrail · Button
+└── lib/utils.ts</pre>
+</div>
+
+<p style="margin-top:1.5rem;font-size:0.9rem;color:#555;">Esta seção está ok? Confirme no terminal para ver a próxima (Componentes e Comportamentos).</p>

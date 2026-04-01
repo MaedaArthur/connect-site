@@ -1,0 +1,59 @@
+<h2>Design: Connect Ideathon — Next.js 14</h2>
+<p class="subtitle">Seção 3 de 3 — Ordem da landing page e sequência de implementação</p>
+
+<div class="section">
+  <div class="label">Ordem das seções em app/page.tsx</div>
+  <div style="display:flex;flex-direction:column;gap:0.4rem;margin-top:0.5rem;font-size:0.83rem;">
+    <div style="display:flex;align-items:center;gap:0.8rem;padding:0.6rem 0.8rem;background:#f0f4ff;border-radius:4px;border-left:3px solid #003399;">
+      <span style="font-family:monospace;color:#003399;font-weight:700;min-width:24px;">1</span><span><strong>Hero</strong> — fundo claro, grid 2 colunas (texto + SVG montanha)</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:0.8rem;padding:0.6rem 0.8rem;background:#f8f8f8;border-radius:4px;border-left:3px solid #aaa;">
+      <span style="font-family:monospace;color:#888;min-width:24px;">↕</span><span style="color:#777;font-size:0.8rem;"><em>MountainDivider variant A — claro → branco</em></span>
+    </div>
+    <div style="display:flex;align-items:center;gap:0.8rem;padding:0.6rem 0.8rem;background:#f0f4ff;border-radius:4px;border-left:3px solid #003399;">
+      <span style="font-family:monospace;color:#003399;font-weight:700;min-width:24px;">2</span><span><strong>Metodologia</strong> — fundo branco, 3 cards + AntTrail horizontal</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:0.8rem;padding:0.6rem 0.8rem;background:#f8f8f8;border-radius:4px;border-left:3px solid #aaa;">
+      <span style="font-family:monospace;color:#888;min-width:24px;">↕</span><span style="color:#777;font-size:0.8rem;"><em>MountainDivider variant B — branco → azul-escuro</em></span>
+    </div>
+    <div style="display:flex;align-items:center;gap:0.8rem;padding:0.6rem 0.8rem;background:#f0f4ff;border-radius:4px;border-left:3px solid #003399;">
+      <span style="font-family:monospace;color:#003399;font-weight:700;min-width:24px;">3</span><span><strong>Empresas</strong> — fundo azul-escuro, grid 2 colunas, mini montanha decorativa</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:0.8rem;padding:0.6rem 0.8rem;background:#f8f8f8;border-radius:4px;border-left:3px solid #aaa;">
+      <span style="font-family:monospace;color:#888;min-width:24px;">↕</span><span style="color:#777;font-size:0.8rem;"><em>BridgeDivider — azul-escuro → claro (com figura + trilha)</em></span>
+    </div>
+    <div style="display:flex;align-items:center;gap:0.8rem;padding:0.6rem 0.8rem;background:#f0f4ff;border-radius:4px;border-left:3px solid #003399;">
+      <span style="font-family:monospace;color:#003399;font-weight:700;min-width:24px;">4</span><span><strong>ComoFunciona</strong> — fundo claro, grid 4 colunas com steps coloridos</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:0.8rem;padding:0.6rem 0.8rem;background:#f8f8f8;border-radius:4px;border-left:3px solid #aaa;">
+      <span style="font-family:monospace;color:#888;min-width:24px;">↕</span><span style="color:#777;font-size:0.8rem;"><em>MountainDivider variant C — claro → branco</em></span>
+    </div>
+    <div style="display:flex;align-items:center;gap:0.8rem;padding:0.6rem 0.8rem;background:#f0f4ff;border-radius:4px;border-left:3px solid #003399;">
+      <span style="font-family:monospace;color:#003399;font-weight:700;min-width:24px;">5</span><span><strong>Parceiros</strong> — fundo branco, estado "em breve" ou grid de chips</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:0.8rem;padding:0.6rem 0.8rem;background:#f8f8f8;border-radius:4px;border-left:3px solid #aaa;">
+      <span style="font-family:monospace;color:#888;min-width:24px;">↕</span><span style="color:#777;font-size:0.8rem;"><em>Peteel Band + MountainDivider — branco → azul-escuro</em></span>
+    </div>
+    <div style="display:flex;align-items:center;gap:0.8rem;padding:0.6rem 0.8rem;background:#f0f4ff;border-radius:4px;border-left:3px solid #003399;">
+      <span style="font-family:monospace;color:#003399;font-weight:700;min-width:24px;">6</span><span><strong>CTA</strong> — fundo azul-escuro, centralizado, ponte decorativa no rodapé</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="label">Sequência de implementação</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-top:0.5rem;font-size:0.8rem;">
+    <div style="padding:0.7rem;background:#f8f8f8;border-radius:4px;"><strong>1.</strong> Scaffold create-next-app</div>
+    <div style="padding:0.7rem;background:#f8f8f8;border-radius:4px;"><strong>2.</strong> config/site.ts + config/theme.ts</div>
+    <div style="padding:0.7rem;background:#f8f8f8;border-radius:4px;"><strong>3.</strong> globals.css + layout.tsx (CSS vars)</div>
+    <div style="padding:0.7rem;background:#f8f8f8;border-radius:4px;"><strong>4.</strong> Nav + Footer</div>
+    <div style="padding:0.7rem;background:#f8f8f8;border-radius:4px;"><strong>5.</strong> ui/ (Button, AntTrail, MountainDivider, BridgeDivider)</div>
+    <div style="padding:0.7rem;background:#f8f8f8;border-radius:4px;"><strong>6.</strong> Seções da landing (Hero → CTA)</div>
+    <div style="padding:0.7rem;background:#f8f8f8;border-radius:4px;"><strong>7.</strong> page.tsx (composição final)</div>
+    <div style="padding:0.7rem;background:#f8f8f8;border-radius:4px;"><strong>8.</strong> app/empresas/page.tsx</div>
+    <div style="padding:0.7rem;background:#f8f8f8;border-radius:4px;"><strong>9.</strong> README.md</div>
+    <div style="padding:0.7rem;background:#f8f8f8;border-radius:4px;"><strong>10.</strong> Teste responsivo + ajustes finais</div>
+  </div>
+</div>
+
+<p style="margin-top:1.5rem;font-size:0.9rem;color:#555;">Design completo. Confirme no terminal para eu escrever o spec doc e partir para o plano de implementação.</p>
