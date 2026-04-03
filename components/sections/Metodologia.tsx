@@ -26,6 +26,12 @@ export default function Metodologia() {
           ))}
         </div>
 
+        <div className={styles.cta}>
+          <a href="/metodologia" className={styles.ctaLink}>
+            Ver metodologia completa →
+          </a>
+        </div>
+
         {/* AntTrail horizontal como divisor inferior */}
         <div className={styles.trailDivider}>
           <AntTrail direction="horizontal" color="#003399" />

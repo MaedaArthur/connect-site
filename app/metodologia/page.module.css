@@ -1,0 +1,479 @@
+/* ─── Hero ─── */
+.hero {
+  background: var(--azul-escuro);
+  padding: 96px 0 80px;
+}
+
+.heroInner {
+  max-width: 760px;
+}
+
+.heroEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.67rem;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--azul-detalhe, #5b8dee);
+  margin-bottom: 20px;
+}
+.heroEyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: var(--azul-detalhe, #5b8dee);
+}
+
+.heroTitle {
+  font-family: var(--font-condensed);
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.heroTitle em {
+  display: block;
+  font-style: italic;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.heroSubtitle {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 580px;
+  margin-bottom: 36px;
+}
+
+.heroPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pill {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+/* ─── Shared section tokens ─── */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.67rem;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--azul-detalhe);
+  margin-bottom: 12px;
+}
+.eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: var(--azul-detalhe);
+}
+
+.eyebrowLight {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.67rem;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 12px;
+}
+.eyebrowLight::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.sectionTitle {
+  font-family: var(--font-condensed);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--azul-escuro);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.sectionTitle em {
+  font-style: italic;
+  color: var(--text-muted);
+  font-family: var(--font-serif);
+  font-weight: 600;
+}
+
+.sectionTitleLight {
+  font-family: var(--font-condensed);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.sectionTitleLight em {
+  font-style: italic;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.sectionSubtitle {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin-bottom: 56px;
+}
+
+.sectionSubtitleLight {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 600px;
+  margin-bottom: 56px;
+}
+
+/* ─── Diferencial / Princípios ─── */
+.diferencialSection {
+  background: #fff;
+  padding: 96px 0 80px;
+}
+
+.principiosGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.principioCard {
+  border: 1px solid rgba(0, 51, 153, 0.1);
+  padding: 2rem;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.principioCard:hover {
+  border-color: rgba(0, 51, 153, 0.22);
+  box-shadow: 0 6px 28px rgba(0, 51, 153, 0.06);
+}
+
+.principioBar {
+  width: 2rem;
+  height: 2px;
+  margin-bottom: 1.2rem;
+}
+
+.principioTitle {
+  font-family: var(--font-condensed);
+  font-size: 0.95rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--azul-escuro);
+  margin-bottom: 10px;
+}
+
+.principioText {
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+/* ─── Fases ─── */
+.fasesSection {
+  background: var(--claro);
+  padding: 96px 0 80px;
+}
+
+.fasesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.faseItem {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 32px;
+  padding: 40px 0;
+  border-bottom: 1px solid rgba(0, 51, 153, 0.08);
+}
+.faseItem:first-child {
+  border-top: 1px solid rgba(0, 51, 153, 0.08);
+}
+
+.faseLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 4px;
+  gap: 12px;
+}
+
+.faseNum {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  color: rgba(0, 51, 153, 0.12);
+  line-height: 1;
+  font-weight: 600;
+}
+
+.faseBar {
+  width: 2rem;
+  height: 2px;
+}
+
+.faseContent {
+  padding-top: 4px;
+}
+
+.faseTitle {
+  font-family: var(--font-condensed);
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--azul-escuro);
+  margin-bottom: 12px;
+}
+
+.faseText {
+  font-size: 0.875rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  max-width: 680px;
+  margin-bottom: 12px;
+}
+
+.faseDestaque {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--azul);
+  letter-spacing: 0.01em;
+}
+
+/* ─── Matriz RPU ─── */
+.rpuSection {
+  background: var(--azul-escuro);
+  padding: 96px 0 80px;
+}
+
+.rpuGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.rpuCard {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2.4rem 2rem;
+  transition: border-color 0.2s;
+}
+.rpuCard:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.rpuLetra {
+  font-family: var(--font-condensed);
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.rpuNome {
+  font-family: var(--font-condensed);
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rpuList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+}
+
+.rpuItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.rpuDot {
+  flex-shrink: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  margin-top: 6px;
+}
+
+/* ─── Papel da IA ─── */
+.iaSection {
+  background: #fff;
+  padding: 96px 0 80px;
+}
+
+.iaGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.iaCard {
+  border: 1px solid rgba(0, 51, 153, 0.1);
+  padding: 2rem;
+  position: relative;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.iaCard:hover {
+  border-color: rgba(0, 51, 153, 0.22);
+  box-shadow: 0 6px 28px rgba(0, 51, 153, 0.06);
+}
+
+.iaNum {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  color: rgba(0, 51, 153, 0.07);
+  line-height: 1;
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+}
+
+.iaTitle {
+  font-family: var(--font-condensed);
+  font-size: 0.95rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--azul-escuro);
+  margin-bottom: 10px;
+}
+
+.iaText {
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+/* ─── Aplicações ─── */
+.aplicacoesSection {
+  background: var(--azul-escuro);
+  padding: 96px 0 80px;
+}
+
+.aplicacoesGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 56px;
+}
+
+.aplicacaoItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.aplicacaoCheck {
+  color: var(--azul-detalhe, #5b8dee);
+  font-family: var(--font-condensed);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.ctaWrap {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 800;
+  padding: 12px 28px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--azul-escuro);
+  transition: background 0.2s, transform 0.15s;
+}
+.ctaBtn:hover {
+  background: rgba(255, 255, 255, 0.88);
+  transform: translateY(-1px);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+  .principiosGrid,
+  .rpuGrid,
+  .iaGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .faseItem {
+    grid-template-columns: 56px 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .faseItem {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .faseLeft {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .faseNum {
+    font-size: 2rem;
+  }
+}

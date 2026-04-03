@@ -1,6 +1,7 @@
 import { siteConfig } from '@/config/site'
 import { getCtaProps } from '@/lib/utils'
 import Button from '@/components/ui/Button'
+import NotifyForm from '@/components/ui/NotifyForm'
 import styles from './CTA.module.css'
 
 export default function CTA() {
@@ -31,16 +32,16 @@ export default function CTA() {
 
           <p className={styles.subtitle}>{cta.subtitulo}</p>
 
-          <div className={styles.buttons}>
-            {ctaProps.href ? (
+          {ctaProps.active ? (
+            <div className={styles.buttons}>
               <Button variant="primary" href={ctaProps.href}>{ctaProps.label}</Button>
-            ) : (
-              <Button variant="white">{ctaProps.label}</Button>
-            )}
-            <Button variant="outline-white" href={event.instagram}>
-              {cta.ctaSecondary}
-            </Button>
-          </div>
+              <Button variant="outline-white" href={event.instagram}>
+                {cta.ctaSecondary}
+              </Button>
+            </div>
+          ) : (
+            <NotifyForm />
+          )}
 
         </div>
 

@@ -132,7 +132,7 @@ export const siteConfig = {
     titulo: 'Pronto para',
     tituloItalico: 'encontrar o problema?',
     subtitulo:
-      '75 vagas. Times de 4 a 5 pessoas. Empresas reais de Florianópolis. Um único evento que pode mudar o rumo da sua carreira.',
+      '60 vagas. Times de 5 pessoas. Empresas reais de Florianópolis. Um único evento que pode mudar o rumo da sua carreira.',
     ctaPrimary: 'Avise-me quando abrir',
     ctaSecondary: 'Seguir no Instagram',
   },
@@ -140,7 +140,7 @@ export const siteConfig = {
   footer: {
     realizacao: 'Uma realização PETEEL · Florianópolis 2026',
     links: [
-      { label: 'Metodologia', href: '#metodologia' },
+      { label: 'Metodologia', href: '/metodologia' },
       { label: 'Empresas', href: '#empresas' },
       { label: 'Parceiros', href: '#parceiros' },
       { label: 'Instagram', href: 'https://instagram.com/connectideathon' },

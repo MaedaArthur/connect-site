@@ -7,7 +7,7 @@ import styles from './Nav.module.css'
 function LogoMark() {
   if (theme.logo.textMode) {
     return (
-      <a href="#inicio" className={styles.logo}>
+      <a href="/" className={styles.logo}>
         <div className={styles.logoAnt} aria-hidden="true">
           <span className={styles.dot1}></span>
           <span className={styles.dot2}></span>
@@ -18,7 +18,7 @@ function LogoMark() {
     )
   }
   return (
-    <a href="#inicio" className={styles.logoImg}>
+    <a href="/" className={styles.logoImg}>
       <Image
         src={theme.logo.default}
         alt={theme.logo.text}
@@ -41,14 +41,14 @@ export default function Nav() {
 
         <nav>
           <ul className={styles.links}>
-            <li><a href="#metodologia">Metodologia</a></li>
-            <li><a href="#empresas">Para Empresas</a></li>
-            <li><a href="#parceiros">Parceiros</a></li>
+            <li><a href="/metodologia">Metodologia</a></li>
+            <li><a href="/#empresas">Para Empresas</a></li>
+            <li><a href="/#parceiros">Parceiros</a></li>
             <li>
               {cta.href ? (
                 <a href={cta.href} className={styles.ctaLink}>{cta.label}</a>
               ) : (
-                <a href="#inscricoes" className={styles.ctaLink}>{cta.label}</a>
+                <a href="/#inscricoes" className={styles.ctaLink}>{cta.label}</a>
               )}
             </li>
           </ul>

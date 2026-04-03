@@ -1,7 +1,7 @@
 import styles from './page.module.css'
 
 export const metadata = {
-  title: 'Para Empresas — Connect Ideathon 2026',
+  title: 'Para Empresas · Connect Ideathon 2026',
   description: 'Seja parceiro do Connect Ideathon 2026 em Florianópolis.',
 }
 

@@ -102,6 +102,27 @@
   font-weight: 600;
 }
 
+.cta {
+  margin-top: 2.5rem;
+}
+
+.ctaLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--azul);
+  letter-spacing: 0.01em;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.ctaLink:hover {
+  color: var(--azul-escuro);
+  border-bottom-color: var(--azul-escuro);
+}
+
 .trailDivider {
   margin-top: 3.5rem;
   display: flex;
