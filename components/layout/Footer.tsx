@@ -16,9 +16,9 @@ function LogoMark() {
       </div>
     )
   }
+
   return (
     <div className={styles.logoMark}>
-      {/* Logo sem fundo — funciona sobre azul-escuro do footer */}
       <Image
         src={theme.logo.white}
         alt={theme.logo.text}
@@ -46,11 +46,23 @@ export default function Footer() {
           </div>
 
           <ul className={styles.links}>
-            {footer.links.map((link) => (
-              <li key={link.label}>
-                <a href={link.href}>{link.label}</a>
-              </li>
-            ))}
+            {footer.links.map((link) => {
+              const isExternal = link.href.startsWith('http')
+
+              return (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    {...(isExternal && {
+                      target: '_blank',
+                      rel: 'noopener noreferrer',
+                    })}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              )
+            })}
           </ul>
 
           <div className={styles.info}>{footer.info}</div>

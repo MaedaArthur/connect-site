@@ -143,7 +143,7 @@ export const siteConfig = {
       { label: 'Metodologia', href: '/metodologia' },
       { label: 'Empresas', href: '#empresas' },
       { label: 'Parceiros', href: '#parceiros' },
-      { label: 'Instagram', href: 'https://instagram.com/connectideathon' },
+      { label: 'Instagram', href: 'https://www.instagram.com/connect.ideathon/' },
     ],
     info: 'Agosto 2026',
   },
