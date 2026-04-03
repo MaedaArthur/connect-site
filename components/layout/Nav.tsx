@@ -1,9 +1,11 @@
+'use client'
+
+import { useState } from 'react'
 import Image from 'next/image'
 import { theme } from '@/config/theme'
 import { getCtaProps } from '@/lib/utils'
 import styles from './Nav.module.css'
 
-/* LogoMark — renderiza imagem (sem fundo) ou texto+dots como fallback */
 function LogoMark() {
   if (theme.logo.textMode) {
     return (
@@ -33,22 +35,34 @@ function LogoMark() {
 
 export default function Nav() {
   const cta = getCtaProps()
+  const [open, setOpen] = useState(false)
 
   return (
     <header className={styles.nav}>
       <div className={`container ${styles.inner}`}>
         <LogoMark />
 
+        <button
+          className={styles.hamburger}
+          onClick={() => setOpen(!open)}
+          aria-label={open ? 'Fechar menu' : 'Abrir menu'}
+          aria-expanded={open}
+        >
+          <span className={open ? styles.barOpen1 : ''} />
+          <span className={open ? styles.barOpen2 : ''} />
+          <span className={open ? styles.barOpen3 : ''} />
+        </button>
+
         <nav>
-          <ul className={styles.links}>
-            <li><a href="/metodologia">Metodologia</a></li>
-            <li><a href="/#empresas">Para Empresas</a></li>
-            <li><a href="/#parceiros">Parceiros</a></li>
+          <ul className={`${styles.links}${open ? ` ${styles.linksOpen}` : ''}`}>
+            <li><a href="/metodologia" onClick={() => setOpen(false)}>Metodologia</a></li>
+            <li><a href="/#empresas" onClick={() => setOpen(false)}>Para Empresas</a></li>
+            <li><a href="/#parceiros" onClick={() => setOpen(false)}>Parceiros</a></li>
             <li>
               {cta.href ? (
-                <a href={cta.href} className={styles.ctaLink}>{cta.label}</a>
+                <a href={cta.href} className={styles.ctaLink} onClick={() => setOpen(false)}>{cta.label}</a>
               ) : (
-                <a href="/#inscricoes" className={styles.ctaLink}>{cta.label}</a>
+                <a href="/#inscricoes" className={styles.ctaLink} onClick={() => setOpen(false)}>{cta.label}</a>
               )}
             </li>
           </ul>

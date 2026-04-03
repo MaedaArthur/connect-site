@@ -156,3 +156,46 @@
   color: var(--text-muted);
   font-weight: 600;
 }
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 0 56px;
+  }
+
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .title {
+    font-size: clamp(2.2rem, 8vw, 3rem);
+  }
+
+  .stats {
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 36px;
+  }
+
+  .badge {
+    padding: 28px 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 48px 0 40px;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .badge {
+    padding: 24px 20px;
+  }
+
+  .stats {
+    gap: 20px;
+  }
+}

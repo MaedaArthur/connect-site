@@ -94,3 +94,14 @@
   background: var(--claro-escuro);
   transform: translateY(-2px);
 }
+
+@media (max-width: 768px) {
+  .section {
+    padding: 64px 0 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

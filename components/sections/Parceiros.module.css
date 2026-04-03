@@ -145,3 +145,30 @@
   font-size: 0.78rem;
   color: var(--text-muted);
 }
+
+@media (max-width: 640px) {
+  .section {
+    padding: 64px 0 56px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .coming {
+    padding: 40px 20px;
+  }
+
+  .peteelBand {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .peteelSep {
+    display: none;
+  }
+}
