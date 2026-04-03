@@ -9,7 +9,24 @@ export default function NotifyForm() {
 
   if (state?.ok) {
     return (
-      <p className={styles.success}>{state.message}</p>
+      <div className={styles.successBox}>
+        <p className={styles.successTitle}>Cadastrado!</p>
+        <p className={styles.successSub}>Você vai receber um e-mail em breve. Para não perder:</p>
+        <div className={styles.successLinks}>
+          <div className={styles.successLink}>
+            <span className={styles.successLinkNum}>01</span>
+            <span>Abra seu e-mail e procure uma mensagem do Connect</span>
+          </div>
+          <div className={styles.successLink}>
+            <span className={styles.successLinkNum}>02</span>
+            <span>Se não estiver na caixa principal, confira a aba <strong>Promoções</strong> ou <strong>Spam</strong></span>
+          </div>
+          <div className={styles.successLink}>
+            <span className={styles.successLinkNum}>03</span>
+            <span>Marque como <strong>Não é spam</strong> ou mova para a caixa principal para não perder os próximos avisos</span>
+          </div>
+        </div>
+      </div>
     )
   }
 
