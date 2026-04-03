@@ -25,8 +25,8 @@ export async function subscriberAction(_prevState: { ok: boolean; message: strin
       body: JSON.stringify({
         email,
         attributes: {
-          FIRSTNAME: nome,
-          LASTNAME: `${curso ?? ''} · ${universidade ?? ''}`.replace(/^ · | · $/g, '').trim() || undefined,
+          NOME: nome,
+          SOBRENOME: `${curso ?? ''} · ${universidade ?? ''}`.replace(/^ · | · $/g, '').trim() || undefined,
         },
         listIds: [Number(process.env.BREVO_LIST_ID ?? 2)],
         updateEnabled: true,
