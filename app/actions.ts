@@ -26,25 +26,25 @@ export async function subscriberAction(_prevState: { ok: boolean; message: strin
         email,
         attributes: {
           FIRSTNAME: nome,
-          CURSO: curso ?? '',
-          UNIVERSIDADE: universidade ?? '',
+          LASTNAME: `${curso ?? ''} · ${universidade ?? ''}`.replace(/^ · | · $/g, '').trim() || undefined,
         },
         listIds: [Number(process.env.BREVO_LIST_ID ?? 2)],
         updateEnabled: true,
       }),
     })
 
-    if (!res.ok && res.status !== 204) {
+    if (!res.ok) {
       const body = await res.json().catch(() => ({}))
-      // 400 com code DUPLICATE_PARAMETER = e-mail já cadastrado, trata como sucesso
       if (body?.code === 'DUPLICATE_PARAMETER') {
         return { ok: true, message: 'Você já está na lista. A gente avisa quando abrir!' }
       }
+      console.error('[Brevo]', res.status, JSON.stringify(body))
       return { ok: false, message: 'Erro ao cadastrar. Tente novamente.' }
     }
 
     return { ok: true, message: 'Cadastrado! Você será o primeiro a saber quando abrir.' }
-  } catch {
+  } catch (err) {
+    console.error('[Brevo] fetch error', err)
     return { ok: false, message: 'Erro de conexão. Tente novamente.' }
   }
 }
