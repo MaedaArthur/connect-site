@@ -7,7 +7,7 @@ export const siteConfig = {
     registrationsOpen: false,
     registrationsUrl: '/inscricoes',
     instagram: 'https://www.instagram.com/connect.ideathon/',
-    email: 'connect@peteel.ufsc.br',
+    email: 'peteel@gmail.com',
   },
 
   hero: {

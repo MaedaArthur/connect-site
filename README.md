@@ -29,7 +29,7 @@ event: {
   registrationsOpen: false,        // mude para true quando abrir inscrições
   registrationsUrl: '',            // cole aqui o link do formulário de inscrição
   instagram: 'https://instagram.com/connectideathon',
-  email: 'connect@peteel.ufsc.br',
+  email: 'peteel@gmail.com',
 }
 ```
 
