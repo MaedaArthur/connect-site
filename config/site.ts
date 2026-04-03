@@ -5,7 +5,7 @@ export const siteConfig = {
     cidade: 'Florianópolis',
     data: 'Agosto 2026',
     registrationsOpen: false,
-    registrationsUrl: '',
+    registrationsUrl: '/inscricoes',
     instagram: 'https://www.instagram.com/connect.ideathon/',
     email: 'connect@peteel.ufsc.br',
   },
