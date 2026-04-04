@@ -148,6 +148,32 @@ export const siteConfig = {
     info: 'Agosto 2026',
   },
 
+  socialProof: {
+    label: 'Sobre o projeto',
+    titulo: 'Construído com',
+    tituloItalico: 'base real.',
+    descricao:
+      'O Connect é um evento piloto desenvolvido dentro da UFSC pelo PET Engenharia Elétrica, em colaboração com empresas de Florianópolis. A primeira edição nasce com o objetivo de testar um novo formato de resolução de problemas reais, mais próximo do que o mercado realmente exige.',
+    bullets: [
+      {
+        accent: 'var(--azul)',
+        text: 'Desenvolvido por estudantes da UFSC com experiência em projetos reais',
+      },
+      {
+        accent: 'var(--magenta)',
+        text: 'Metodologia própria focada em identificação de problemas antes da solução',
+      },
+      {
+        accent: 'var(--ciano)',
+        text: 'Construído em diálogo com empresas do ecossistema de Florianópolis',
+      },
+      {
+        accent: 'var(--laranja)',
+        text: 'Primeira edição com vagas limitadas para manter a qualidade da experiência',
+      },
+    ],
+  },
+
   peteel: {
     name: 'PETEEL',
     description: 'Grupo PET · Engenharia Elétrica · UFSC',

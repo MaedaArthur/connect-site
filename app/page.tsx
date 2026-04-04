@@ -1,4 +1,5 @@
 import Hero from '@/components/sections/Hero'
+import SocialProof from '@/components/sections/SocialProof'
 import Metodologia from '@/components/sections/Metodologia'
 import Empresas from '@/components/sections/Empresas'
 import ComoFunciona from '@/components/sections/ComoFunciona'
@@ -13,10 +14,13 @@ export default function Home() {
       {/* 1. Hero — fundo claro */}
       <Hero />
 
+      {/* 2. SocialProof — fundo claro (mesmo fundo do Hero) */}
+      <SocialProof />
+
       {/* Divider A: claro → branco */}
       <MountainDivider variant="A" fromColor="var(--claro)" toColor="#ffffff" />
 
-      {/* 2. Metodologia — fundo branco */}
+      {/* 3. Metodologia — fundo branco */}
       <Metodologia />
 
       {/* Divider B: branco → azul-escuro */}
