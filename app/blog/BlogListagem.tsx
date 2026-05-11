@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react"
 import Link from "next/link"
 import type { PostMeta } from "@/lib/posts"
-import { formatarData } from "@/lib/posts"
+import { formatarData } from "@/lib/post-utils"
 import styles from "./BlogListagem.module.css"
 
 type Props = {
