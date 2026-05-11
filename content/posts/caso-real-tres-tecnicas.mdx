@@ -1,0 +1,140 @@
+---
+titulo: "Sexta, 17h, um pedido impossível: como atravessar um problema com as três técnicas juntas"
+excerpt: "Na vida real, as habilidades não aparecem isoladas. Você usa as três no mesmo problema — e a ordem importa. Um caso real, do pedido à apresentação, com as três técnicas operando em sequência."
+tag: "Sem Gabarito"
+categorias: ["carreira", "universitário", "estudo-de-caso"]
+tempoLeitura: 9
+destaque: false
+dataPublicacao: "2026-06-02"
+---
+
+Sexta, 17h12. Você é estagiária num e-commerce de Floripa há 4 meses. Slack pisca. É o seu chefe:
+
+> *"Marina, preciso de uma análise rápida pra reunião de segunda 9h. Nossas vendas caíram 18% em abril e ninguém tá entendendo por quê. Vou apresentar pro CEO. Me ajuda?"*
+
+Você lê três vezes. **18% é grande.** Reunião com o CEO é grande. "Análise rápida" significa que você tem o fim de semana — e ele não vai aceitar "não consegui".
+
+Você abre o painel de vendas. Confirma a queda. E percebe: você não tem ideia de por onde começar.
+
+Esse artigo é o passo a passo do que fazer entre 17h12 da sexta e 9h da segunda, usando as três técnicas da série Sem Gabarito — na ordem certa.
+
+## Etapa 1 — Achar o problema real (5 porquês)
+
+Antes de coletar dado, antes de fazer planilha, antes de qualquer coisa: você precisa achar a hipótese mais provável de causa. Senão você vai gastar o fim de semana minerando dado aleatório.
+
+Você abre o caderno. Roda os 5 porquês com o que sabe:
+
+**Problema:** vendas caíram 18% em abril.
+
+**Por quê 1?** Porque o tráfego no site caiu *(você confere no Analytics — caiu 12%)*.
+
+**Por quê 2?** Porque a campanha do Google Ads gastou metade do mês passado *(você abre o Ads — confirma)*.
+
+**Por quê 3?** Porque o orçamento foi cortado em março.
+
+**Por quê 4?** Porque o financeiro travou gastos não-essenciais antes do fechamento do trimestre.
+
+**Por quê 5?** Porque a empresa não tem regra clara separando marketing como "essencial" ou "não-essencial" no congelamento.
+
+**Causa real candidata:** o congelamento sazonal de gastos engoliu o orçamento de mídia porque marketing não está protegido como "essencial".
+
+Mas você não para aí. Roda os 5 porquês de uma cadeia alternativa, porque **não é tudo tráfego — 12% de queda em tráfego não explica 18% em vendas**. Tem 6 pontos percentuais sobrando.
+
+**Hipótese alternativa:** taxa de conversão também caiu.
+
+**Por quê 1?** Porque o checkout tá mais lento?
+*(Você abre o monitoramento. Sim — tempo médio de checkout subiu 40%.)*
+
+**Por quê 2?** Por causa de uma feature nova de "frete inteligente" que entrou dia 8 de abril.
+
+**Você agora tem duas causas candidatas, não uma.** Isso é normal. Anota as duas.
+
+> **Por que isso importou:** se você tivesse parado no primeiro porquê ("o tráfego caiu"), teria entregue um diagnóstico parcial. Sua proposta seria "aumentar Ads" — e o CEO aprovaria. Três meses depois, com Ads restaurado, as vendas continuariam baixas, e ninguém saberia explicar.
+
+## Etapa 2 — Decidir o que entregar (decisão com dado faltando)
+
+Você olha o relógio. 19h. Você tem o fim de semana.
+
+Pra confirmar a causa #1 (congelamento), você precisa de dado do financeiro — só na segunda. Pra confirmar a #2 (checkout lento), você precisa de log do produto — também só na segunda.
+
+**Filtro 1: o dado é crítico?** Sim — sem confirmação, suas duas causas são hipóteses.
+
+**Filtro 2: dá pra inferir?** Parcialmente. Você tem:
+
+- Tráfego (-12%) ✓
+- Gasto de Ads (-50%) ✓
+- Tempo de checkout (+40%) ✓
+- Data exata da feature (8 de abril) ✓
+- Taxa de conversão (queda confirmada em 6 pontos) ✓
+
+Você tem **evidência forte das duas hipóteses**. O que falta é a *causa-raiz* de cada uma — não a evidência do efeito.
+
+**Decisão:** você escreve a análise com as duas causas, marcando explicitamente o que assumiu.
+
+Você manda um e-mail curto pro chefe sábado de manhã:
+
+> *"Já tenho duas hipóteses fortes pra queda — congelamento de orçamento de Ads e feature de frete que aumentou tempo de checkout. Estou assumindo que (1) o orçamento foi cortado pelo trigger sazonal de fim de trimestre e (2) a feature de frete entrou no dia 8 sem teste A/B. Se você souber que alguma dessas duas suposições está errada, me avisa que eu refaço. Senão, sigo com elas."*
+
+Ele responde em 10 minutos:
+
+> *"primeira tá certa, segunda confirmo segunda cedo"*.
+
+Você economizou um fim de semana inteiro de mineração de dado **porque pediu com hipótese, não com pergunta vazia**.
+
+## Etapa 3 — Apresentar (PREP)
+
+Domingo à noite, você tem a análise pronta. Resta o mais importante: **como entregar pro chefe em formato que ele consegue defender pro CEO**.
+
+Você sabe que seu chefe tem 90 segundos com o CEO antes de ele cortar a conversa. Então sua análise precisa caber em 90 segundos — e a primeira frase precisa carregar 80% do peso.
+
+Você abre o documento e escreve a abertura em PREP:
+
+> **(P) — Point**
+> A queda de 18% nas vendas em abril vem de duas causas independentes que se somaram: o congelamento sazonal de Ads e o impacto da nova feature de frete no checkout.
+>
+> **(R) — Reason**
+> Ads cortado em 50% explica 12% de queda em tráfego. A feature de frete aumentou o tempo de checkout em 40% e derrubou conversão em 6 pontos. Juntas, fecham os 18%.
+>
+> **(E) — Example**
+> O ponto mais claro é o dia 8 de abril: nesse dia entram a campanha cortada *e* a feature nova. Conversão cai abruptamente nesse dia exato — não foi um declínio gradual.
+>
+> **(P) — Point**
+> Duas causas, duas correções diferentes: reverter a regra de congelamento pra marketing essencial, e fazer rollback da feature de frete pra teste A/B.
+
+Você manda pro chefe domingo às 22h com o assunto: *"análise + recomendação · 90s"*.
+
+Segunda 7h30 ele responde:
+
+> *"Marina, isso é exatamente o que eu precisava. Vou apresentar assim. Obrigado."*
+
+Segunda 11h ele te chama no Slack:
+
+> *"o CEO aceitou as duas correções. Boa."*
+
+## O que aconteceu, em uma linha
+
+Você atravessou um problema completo — do pedido na sexta à decisão do CEO na segunda — usando as três técnicas em ordem:
+
+1. **5 porquês** te deu a *causa real* (não o sintoma).
+2. **Decisão com dado faltando** te deu o *avanço* (sem travar esperando o impossível).
+3. **PREP** te deu a *transmissão* (sem perder a conclusão no meio do raciocínio).
+
+Tirar qualquer uma das três, e o domingo da Marina vira pesadelo.
+
+## O que isso tem a ver com o Connect
+
+Esse caso é fictício, mas os movimentos não são. É exatamente o tipo de fim de semana que acontece com estagiários e juniores toda semana em Florianópolis — e em qualquer cidade.
+
+A diferença entre quem atravessa o problema e quem afoga não é talento. É **ter praticado as três habilidades antes do problema chegar**.
+
+É exatamente isso que o Connect Ideathon foi desenhado pra treinar: 4 dias atravessando um problema real, com mentor (ConnectAI) que faz pergunta em vez de dar resposta, e banca final onde você defende a solução em PREP — sob pressão, com dados faltando, sem gabarito.
+
+Quando o pedido vier no Slack na sexta às 17h, você já vai ter atravessado um igual.
+
+<CtaInline texto="Inscrições em junho · Evento em agosto · Florianópolis · Vagas limitadas." />
+
+---
+
+*Esse é o artigo de fechamento da série Sem Gabarito.*
+
+*Releia a série: [Pilar](/blog/o-que-a-faculdade-nao-te-ensina) · [#1 Dado faltando](/blog/decidir-quando-falta-dado) · [#2 Os 5 porquês](/blog/os-5-porques) · [#3 PREP](/blog/prep-em-30-segundos).*
