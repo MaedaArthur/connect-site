@@ -9,6 +9,7 @@ import {
 import { extractTOC, formatarData } from "@/lib/post-utils"
 import TocNav from "@/components/blog/TocNav"
 import ReadingProgress from "@/components/blog/ReadingProgress"
+import CopyLinkButton from "@/components/blog/CopyLinkButton"
 import styles from "./page.module.css"
 
 type Params = { slug: string }
@@ -79,6 +80,7 @@ export default async function ArtigoPage({
         </article>
         <aside className={styles.sidebar}>
           <TocNav items={toc} />
+          <CopyLinkButton titulo={post.titulo} />
         </aside>
       </div>
     </main>
