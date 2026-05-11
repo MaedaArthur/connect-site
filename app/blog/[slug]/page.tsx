@@ -4,8 +4,10 @@ import type { Metadata } from "next"
 import {
   getAllPostMeta,
   getPostMeta,
-  formatarData,
+  getPostSource,
 } from "@/lib/posts"
+import { extractTOC, formatarData } from "@/lib/post-utils"
+import TocNav from "@/components/blog/TocNav"
 import styles from "./page.module.css"
 
 type Params = { slug: string }
@@ -40,6 +42,9 @@ export default async function ArtigoPage({
   const post = await getPostMeta(slug)
   if (!post) notFound()
 
+  const source = await getPostSource(slug)
+  const toc = extractTOC(source)
+
   let Post: React.ComponentType
   try {
     const mod = await import(`@/content/posts/${slug}.mdx`)
@@ -65,9 +70,14 @@ export default async function ArtigoPage({
         </div>
       </header>
 
-      <article className={styles.corpo}>
-        <Post />
-      </article>
+      <div className={styles.layout}>
+        <article className={styles.corpo}>
+          <Post />
+        </article>
+        <aside className={styles.sidebar}>
+          <TocNav items={toc} />
+        </aside>
+      </div>
     </main>
   )
 }
