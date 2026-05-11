@@ -1,6 +1,6 @@
-import Link from "next/link"
 import type { Metadata } from "next"
-import { getAllPostMeta, formatarData } from "@/lib/posts"
+import { getAllPostMeta, getFeaturedPost } from "@/lib/posts"
+import BlogListagem from "./BlogListagem"
 import styles from "./page.module.css"
 
 export const metadata: Metadata = {
@@ -9,7 +9,10 @@ export const metadata: Metadata = {
 }
 
 export default async function BlogPage() {
-  const posts = await getAllPostMeta()
+  const [posts, destaque] = await Promise.all([
+    getAllPostMeta(),
+    getFeaturedPost(),
+  ])
 
   return (
     <main className={styles.main}>
@@ -22,24 +25,7 @@ export default async function BlogPage() {
         </p>
       </section>
 
-      <section className={styles.grid}>
-        {posts.map((post) => (
-          <Link
-            key={post.slug}
-            href={`/blog/${post.slug}`}
-            className={styles.card}
-          >
-            <span className={styles.tag}>{post.tag}</span>
-            <h2 className={styles.cardTitle}>{post.titulo}</h2>
-            <p className={styles.excerpt}>{post.excerpt}</p>
-            <div className={styles.meta}>
-              <span>{formatarData(post.dataPublicacao)}</span>
-              <span>·</span>
-              <span>{post.tempoLeitura} min de leitura</span>
-            </div>
-          </Link>
-        ))}
-      </section>
+      <BlogListagem posts={posts} destaque={destaque} />
     </main>
   )
 }
