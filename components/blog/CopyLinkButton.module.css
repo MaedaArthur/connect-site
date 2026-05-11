@@ -1,0 +1,52 @@
+.bloco {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(10, 18, 64, 0.08);
+}
+
+.titulo {
+  font-family: var(--google-nunito);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted, #5a6a9a);
+  margin: 0 0 12px;
+}
+
+.botoes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.botao {
+  display: inline-block;
+  font-family: var(--google-nunito);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 14px;
+  border: 1px solid rgba(10, 18, 64, 0.12);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--text-dark, #0a1240);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.botao:hover {
+  border-color: var(--azul, #003399);
+}
+
+.whatsapp {
+  background: #25d366;
+  border-color: #25d366;
+  color: #fff;
+}
+
+.whatsapp:hover {
+  background: #1ebe5a;
+  border-color: #1ebe5a;
+}

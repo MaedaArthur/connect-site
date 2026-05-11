@@ -1,0 +1,43 @@
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 24px 80px;
+}
+
+.hero {
+  margin-bottom: 56px;
+}
+
+.eyebrow {
+  font-family: var(--google-nunito);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ciano, #009499);
+  margin: 0 0 16px;
+}
+
+.title {
+  font-family: var(--google-serif);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--text-dark, #0a1240);
+  margin: 0 0 16px;
+}
+
+.subtitle {
+  font-family: var(--google-nunito);
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--text-muted, #5a6a9a);
+  max-width: 640px;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 100px 20px 60px;
+  }
+}

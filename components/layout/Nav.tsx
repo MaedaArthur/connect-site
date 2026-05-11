@@ -58,6 +58,7 @@ export default function Nav() {
             <li><a href="/metodologia" onClick={() => setOpen(false)}>Metodologia</a></li>
             <li><a href="/#empresas" onClick={() => setOpen(false)}>Para Empresas</a></li>
             <li><a href="/#parceiros" onClick={() => setOpen(false)}>Parceiros</a></li>
+            <li><a href="/blog" onClick={() => setOpen(false)}>Blog</a></li>
             <li>
               {cta.href ? (
                 <a href={cta.href} className={styles.ctaLink} onClick={() => setOpen(false)}>{cta.label}</a>
