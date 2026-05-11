@@ -1,0 +1,238 @@
+.section {
+  background: #ffffff;
+  padding: 80px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.eyebrow {
+  font-family: var(--google-nunito);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ciano, #009499);
+  margin: 0 0 12px;
+}
+
+.titulo {
+  font-family: var(--google-serif);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--text-dark, #0a1240);
+  margin: 0;
+}
+
+.verTodos {
+  font-family: var(--google-nunito);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--azul, #003399);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+  flex-shrink: 0;
+  padding-bottom: 4px;
+}
+
+.verTodos:hover {
+  opacity: 0.7;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* Featured post — dark card */
+.destaque {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 40px;
+  background: var(--azul-escuro, #040E69);
+  border-radius: 8px;
+  text-decoration: none;
+  color: #fff;
+  transition: opacity 0.2s;
+}
+
+.destaque:hover {
+  opacity: 0.9;
+}
+
+.destaqueTag {
+  font-family: var(--google-nunito);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.destaqueTitulo {
+  font-family: var(--google-serif);
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: #fff;
+  margin: 0;
+  flex: 1;
+}
+
+.destaqueExcerpt {
+  font-family: var(--google-nunito);
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.destaqueMeta {
+  font-family: var(--google-nunito);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ciano, #009499);
+  margin-top: auto;
+}
+
+/* Recent posts column */
+.recentes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px;
+  border: 1px solid rgba(10, 18, 64, 0.1);
+  border-radius: 8px;
+  background: #fff;
+  text-decoration: none;
+  color: inherit;
+  flex: 1;
+  transition: border-color 0.2s, transform 0.15s;
+}
+
+.card:hover {
+  border-color: var(--azul, #003399);
+  transform: translateY(-2px);
+}
+
+.cardTag {
+  font-family: var(--google-nunito);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ciano, #009499);
+}
+
+.cardTitulo {
+  font-family: var(--google-serif);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--text-dark, #0a1240);
+  margin: 0;
+}
+
+.cardExcerpt {
+  font-family: var(--google-nunito);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted, #5a6a9a);
+  margin: 0;
+  flex: 1;
+}
+
+.cardMeta {
+  font-family: var(--google-nunito);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--azul, #003399);
+}
+
+/* Tag pills */
+.tags {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-top: 8px;
+  border-top: 1px solid rgba(10, 18, 64, 0.08);
+}
+
+.tagsLabel {
+  font-family: var(--google-nunito);
+  font-size: 13px;
+  color: var(--text-muted, #5a6a9a);
+}
+
+.tagPill {
+  font-family: var(--google-nunito);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border: 1px solid rgba(10, 18, 64, 0.15);
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--text-dark, #0a1240);
+  transition: all 0.15s;
+}
+
+.tagPill:hover {
+  border-color: var(--azul, #003399);
+  color: var(--azul, #003399);
+}
+
+.tagPillAll {
+  font-family: var(--google-nunito);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--azul, #003399);
+  transition: opacity 0.15s;
+}
+
+.tagPillAll:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 56px 0;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .verTodos {
+    font-size: 14px;
+  }
+}
