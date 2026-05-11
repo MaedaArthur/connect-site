@@ -5,11 +5,13 @@ import {
   getAllPostMeta,
   getPostMeta,
   getPostSource,
+  getRelatedPosts,
 } from "@/lib/posts"
 import { extractTOC, formatarData } from "@/lib/post-utils"
 import TocNav from "@/components/blog/TocNav"
 import ReadingProgress from "@/components/blog/ReadingProgress"
 import CopyLinkButton from "@/components/blog/CopyLinkButton"
+import RelatedPosts from "@/components/blog/RelatedPosts"
 import styles from "./page.module.css"
 
 type Params = { slug: string }
@@ -44,6 +46,7 @@ export default async function ArtigoPage({
   const post = await getPostMeta(slug)
   if (!post) notFound()
 
+  const relacionados = await getRelatedPosts(post)
   const source = await getPostSource(slug)
   const toc = extractTOC(source)
 
@@ -83,6 +86,7 @@ export default async function ArtigoPage({
           <CopyLinkButton titulo={post.titulo} />
         </aside>
       </div>
+      <RelatedPosts posts={relacionados} />
     </main>
     </>
   )
