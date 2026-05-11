@@ -8,6 +8,7 @@ import {
 } from "@/lib/posts"
 import { extractTOC, formatarData } from "@/lib/post-utils"
 import TocNav from "@/components/blog/TocNav"
+import ReadingProgress from "@/components/blog/ReadingProgress"
 import styles from "./page.module.css"
 
 type Params = { slug: string }
@@ -54,7 +55,9 @@ export default async function ArtigoPage({
   }
 
   return (
-    <main className={styles.main}>
+    <>
+      <ReadingProgress />
+      <main className={styles.main}>
       <nav className={styles.breadcrumb}>
         <Link href="/blog">← Blog</Link>
       </nav>
@@ -79,5 +82,6 @@ export default async function ArtigoPage({
         </aside>
       </div>
     </main>
+    </>
   )
 }

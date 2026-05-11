@@ -1,0 +1,14 @@
+.barra {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--azul, #003399),
+    var(--ciano, #009499)
+  );
+  z-index: 9999;
+  transition: width 0.05s linear;
+  pointer-events: none;
+}
