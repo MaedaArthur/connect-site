@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { siteConfig } from "@/config/site"
 import styles from "./CtaInline.module.css"
 
 type Props = {
@@ -7,16 +8,17 @@ type Props = {
   href?: string
 }
 
-export default function CtaInline({
-  texto,
-  cta = "Avise-me quando abrir",
-  href = "/#inscricoes",
-}: Props) {
+export default function CtaInline({ texto, cta, href }: Props) {
+  const open = siteConfig.event.registrationsOpen
+
+  const resolvedHref = href ?? (open ? "/inscricoes" : "/#inscricoes")
+  const resolvedCta = cta ?? (open ? "Quero me inscrever" : "Avise-me quando abrir")
+
   return (
     <aside className={styles.cta}>
       <p className={styles.texto}>{texto}</p>
-      <Link href={href} className={styles.botao}>
-        {cta}
+      <Link href={resolvedHref} className={styles.botao}>
+        {resolvedCta}
       </Link>
     </aside>
   )
