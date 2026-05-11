@@ -9,8 +9,8 @@ type Props = {
 
 export default function CtaInline({
   texto,
-  cta = "Quero participar",
-  href = "/inscricoes",
+  cta = "Avise-me quando abrir",
+  href = "/#inscricoes",
 }: Props) {
   return (
     <aside className={styles.cta}>
