@@ -4,6 +4,7 @@ import Metodologia from '@/components/sections/Metodologia'
 import Empresas from '@/components/sections/Empresas'
 import ComoFunciona from '@/components/sections/ComoFunciona'
 import Parceiros from '@/components/sections/Parceiros'
+import InstagramFeed from '@/components/sections/InstagramFeed'
 import BlogPreview from '@/components/sections/BlogPreview'
 import CTA from '@/components/sections/CTA'
 import MountainDivider from '@/components/ui/MountainDivider'
@@ -46,6 +47,9 @@ export default function Home() {
 
       {/* 5. Parceiros + Peteel Band — fundo branco */}
       <Parceiros />
+
+      {/* Instagram Feed */}
+      <InstagramFeed />
 
       {/* Blog Preview — fundo branco */}
       <BlogPreview />
