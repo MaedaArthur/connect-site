@@ -90,19 +90,51 @@
   margin-top: 8px;
 }
 
-.grid {
+.grupos {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  flex-direction: column;
+  gap: 48px;
 }
 
-.chip {
-  padding: 8px 20px;
-  border: 1px solid rgba(0, 51, 153, 0.15);
-  border-radius: 999px;
-  font-size: 0.84rem;
+.grupo {
+  display: flex;
+  flex-direction: column;
+}
+
+.grupoLabel {
+  font-size: 0.68rem;
   font-weight: 700;
-  color: var(--azul-escuro);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.logosGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  border: 1px solid rgba(0, 51, 153, 0.12);
+  border-radius: 8px;
+  padding: 32px;
+}
+
+.logoCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  height: 280px;
+  padding: 32px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 51, 153, 0.12);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.logoCard:hover {
+  border-color: rgba(0, 51, 153, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 51, 153, 0.08);
 }
 
 /* Peteel Band */
@@ -160,6 +192,11 @@
 
   .coming {
     padding: 40px 20px;
+  }
+
+  .grupos {
+    flex-direction: column;
+    gap: 40px;
   }
 
   .peteelBand {

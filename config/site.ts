@@ -120,11 +120,23 @@ export const siteConfig = {
     tituloItalico: 'junto',
     descricao:
       'Um evento construído em parceria com instituições e empresas do ecossistema de inovação de Florianópolis.',
-    emBreve: true,
+    emBreve: false,
     emBreveTexto:
       'Empresas e instituições parceiras estão sendo confirmadas. Se sua organização quer fazer parte do Connect 2026, entre em contato.',
-    realizadores: [] as string[],
-    patrocinadores: [] as string[],
+    realizadores: [
+      {
+        nome: 'CreaJR-SC',
+        slug: 'creajr-sc',
+        logo: '/parceiros/creajr-sc.jpg',
+      },
+    ],
+    patrocinadores: [
+      {
+        nome: 'Editora dos Editores',
+        slug: 'editora-dos-editores',
+        logo: '/parceiros/editora-dos-editores.jpeg',
+      },
+    ],
   },
 
   cta: {

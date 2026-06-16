@@ -1,3 +1,5 @@
+import Image from 'next/image'
+import Link from 'next/link'
 import { siteConfig } from '@/config/site'
 import Button from '@/components/ui/Button'
 import styles from './Parceiros.module.css'
@@ -5,6 +7,8 @@ import styles from './Parceiros.module.css'
 export default function Parceiros() {
   const { parceiros, peteel } = siteConfig
   const hasRealizadores = parceiros.realizadores && parceiros.realizadores.length > 0
+  const hasPatrocinadores = parceiros.patrocinadores && parceiros.patrocinadores.length > 0
+  const hasAny = hasRealizadores || hasPatrocinadores
 
   return (
     <>
@@ -21,11 +25,32 @@ export default function Parceiros() {
             <p className={styles.headerDesc}>{parceiros.descricao}</p>
           </div>
 
-          {hasRealizadores ? (
-            <div className={styles.grid}>
-              {parceiros.realizadores.map((name) => (
-                <div key={name} className={styles.chip}>{name}</div>
-              ))}
+          {hasAny ? (
+            <div className={styles.grupos}>
+              {hasRealizadores && (
+                <div className={styles.grupo}>
+                  <p className={styles.grupoLabel}>Realizadores</p>
+                  <div className={styles.logosGrid}>
+                    {parceiros.realizadores.map((p) => (
+                      <Link key={p.slug} href={`/parceiros/${p.slug}`} className={styles.logoCard}>
+                        <Image src={p.logo} alt={p.nome} width={220} height={110} style={{ objectFit: 'contain' }} />
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {hasPatrocinadores && (
+                <div className={styles.grupo}>
+                  <p className={styles.grupoLabel}>Patrocinadores</p>
+                  <div className={styles.logosGrid}>
+                    {parceiros.patrocinadores.map((p) => (
+                      <Link key={p.slug} href={`/parceiros/${p.slug}`} className={styles.logoCard}>
+                        <Image src={p.logo} alt={p.nome} width={220} height={110} style={{ objectFit: 'contain' }} />
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           ) : (
             <div className={styles.coming}>
@@ -40,7 +65,6 @@ export default function Parceiros() {
         </div>
       </section>
 
-      {/* Peteel Band */}
       <div className={styles.peteelBand} aria-label="Realização">
         <div className="container" style={{ display: 'flex', alignItems: 'center', gap: '24px', flexWrap: 'wrap' }}>
           <span className={styles.peteelLabel}>Uma realização</span>
